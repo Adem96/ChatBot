@@ -6,6 +6,7 @@ import gl from "../images/gl.png";
 import sleam from "../images/sleam.png";
 import ds from "../images/ds.png";
 import arrow from "../images/arrow.png"
+import arrowRight from "../images/arrowRight.png"
 class TousLesSpecialites extends Component {
   constructor() {
     super();
@@ -26,26 +27,36 @@ class TousLesSpecialites extends Component {
         <div className="col-lg-11 colBodyS">
       
         <p><span><img className="arrow" src={arrow} alt="arrow"/></span>Spécialités</p>
+        <input
+                  className="inputBotTS"
+                  type="text"
+                  autoComplete="off"
+                  placeholder="Vous avez des questions ?"
+                  name="message"
+                  
+                />
+                <img className="arrowRightTS" src={arrowRight} alt="arrowBot"/> 
+
         <div className="row">
         <div className="col-lg-5 containerLogo">
             <img className="logoOption" src={sim} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
+        
           </div>
           <div className="col-lg-5 containerLogo">
             <img className="logoOption" src={twin} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
+         
           </div>
           <div className="col-lg-5 containerLogo">
             <img className="logoOption" src={gl} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
+      
           </div>
           <div className="col-lg-5 containerLogo">
             <img className="logoOption" src={sleam} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
+        
           </div>
           <div className="col-lg-5 containerLogo">
             <img className="logoOption" src={ds} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
+        
           </div>
 </div>
         </div>
