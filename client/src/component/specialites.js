@@ -58,7 +58,7 @@ class Specialites extends Component {
                 <input
                   className="inputBotS"
                   type="text"
-                  autocomplete="off"
+                  autoComplete="off"
                   placeholder="Options, Specialites, Modules.."
                   name="message"
                   onChange = {this.onChangeMessage.bind(this)}

@@ -5,13 +5,17 @@ import robot from "../images/robot.png"
 import { NavLink } from "react-router-dom"
 
 class Header extends Component {
+
+
   render() {
     return (
       <div className="container-fluid containerHeader">
         <div className="row">
           <div className="col-lg-12 headerNavBar">
             <div className="logoEsprit">
-              <img src={logo} alt="logoEsprit" />
+              <NavLink to="/">
+                  <img src={logo} alt="logoEsprit"/>
+              </NavLink>
             </div>
             <nav className="navbar navbar-expand-sm">
               <ul className="navbar-nav">
