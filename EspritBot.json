@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "esprit-42f65",
+  "private_key_id": "9953f9577573bf710cf3c26b73309340d9743b23",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCvtJVBGsBeqepE\nzaGDL7stSG8zVgbxvSZYPK4VMauWO2M0nIhmS9iJcDXGdA2bQQznIIvW6JrHZALl\n8jt7PYkOTDMP5LordWXoZlRzADgRPalu1wP0Bvtu+BJF8VKnELlMKcr+/NOaY2zX\na194BZVWTlOTkZAhf4tSvRw3HgEOoGeIqBxMCy6pV1ucDIgTXvWwv8VQUr4HwSYH\n92cETeHOPtBC9/i43DEgAd7Hzgf2p7VONXbTUthcBDr+OnLt59+tyyDuWPZRO3sN\neM4MUrBtPPJxVrkgPkusQMqs/1WHVL92PQCBfEEztH6qZ34V6XL6XeczOEZ3E9uT\nPTlHumkJAgMBAAECggEABxG0JpYpsrVR4lpGmwVW2cvOA4n8xgmW6xpn45znuyfh\nBisdFsaK6/6qfzVIndw4ZW0rCya5IXgN4MwF5h+z7bIVpNhOQDTdOIQzdhwGZXUu\nZbH7a/xC7fRHoe5DZcrXta+BxhAMgGvrI2CjyuuoljwZAzkqTBq6U4Ydxj7sCndK\n6upu627DS+bsrvzVq2szTVw8WSa/l60A3WO7VuL9cZReXPGD64UV3baREWNFe6Rp\ngimiSdkyTycraqEk+0BgcC+0IJvW7r+4soj1VUW5a3q0VsUJVZ3jbT2vDgW6bC+u\n0gcyM7vSvul3unTXohTlqJZ+pGD1lCkYA+h+LFRnQQKBgQD1qnhxgvGRnbrqRYpO\nseB0ejcTdEitQ3lemKn41fHrbp0qBBO+Qa7yEF3MatcrxyeuGS1tjW6PYSClU4BB\nF4EJ3iZYRH7nBdW0SZ2JUvJ/cgPHcT1DgH1QI4yiQ+6yw4QGgcYNuVBGMwrIzj+B\nRiLIPOxAxvyDwp8JwwifItp6YQKBgQC3GLigoOMsNjACkVGXaVKM6AidJFZOLtnM\nGv7Qfydt6GySSa4jgCH4hWRzdO/I/poCWG5M2UyE8n4rDuSpErtuFuS1/fVi523j\neoPHk/dwC5hVQs/U2otDg1pk+VxSevz4Ydu6mS2b1RLLvJhofa8l5i6pFKxjYD0r\nnuIkJjn/qQKBgQDK3Y3+dppTnEPpB6nx2FO4+9+VUhZd9fU416qs0MeomjxwoNNI\n7mawgDFlB+lNvnUXALWR3RQqlJNn0u97URR++JMDmvSMhDX4Xj4YU4XrFlTmkq17\nm5Rf5CtTJ/PqbSgOU4YgeSJABhBmyGKKt0crwZt61pdZmxLH9eWdvCNcoQKBgCyq\nECfG94PKeC24K1InNCcBV1CWE6Og1CpxD2XnDsRF5W5OIPeyAxdv2tA7X18FlKYr\n0kRW4c6wpMx2JpuD4Ur6tLIckGafE/Rg55Kg6sRfX7q0wKQo574BZeSp27aXH+yr\nWoGLak/QS3R9viQHPNme7BT84Qyg5mskp/+vf4h5AoGBAJRQMuHFfDpTlCBqPPJ/\npU/0z9CVBPRd1On1Dvh83vSbc6QlVaf7fm0N5vB50glxtDrs+BWNqQsAHMBVrt6I\nXtcGHi4kGUMTO1qTnNWRCEX4vn2L50Dj3yHVunsNQ75fbcEd3giFq0tP39xubA4g\nGN1txDlBf+/Wv31iNeL2yzEC\n-----END PRIVATE KEY-----\n",
+  "client_email": "espritchatbot@esprit-42f65.iam.gserviceaccount.com",
+  "client_id": "110635029232643604887",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/espritchatbot%40esprit-42f65.iam.gserviceaccount.com"
+}

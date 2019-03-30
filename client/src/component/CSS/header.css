@@ -1,0 +1,39 @@
+.containerHeader {
+    width: 100%;
+    margin: 0 auto;
+    background-image: linear-gradient(#a93f36, #501e1a);
+    border: 1px solid saddlebrown;
+    height: 150px;
+  }
+  .container-fluid .row .headerNavBar {
+    display: flex;
+    width: 100%;
+  }
+  .container-fluid .row .col-lg-12 .logoEsprit {
+    width: 20%;
+
+  }
+  .container-fluid .row .col-lg-12 .logoEsprit img {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 150px;
+    height: 80px;
+  }
+  .container-fluid .row .col-lg-12 .navbar {
+    width: 70%;
+    margin-top: 0px;
+  }
+  .container-fluid .row .col-lg-12 .navbar ul {
+    list-style: none;
+  }
+  .container-fluid .row .col-lg-12 .navbar ul li {
+    margin-right: 100px;
+    color: whitesmoke;
+    font-size: 20px;
+  }
+  .container-fluid .row .col-lg-12 .logout {
+    width: 10%;
+    padding: 50px;
+    font-size: 20px;
+    font-weight: bold;
+  }

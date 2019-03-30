@@ -1,0 +1,22 @@
+.rowS{
+    margin-top: 100px;
+}
+.containerLogo{
+    border: 1px solid red;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    background-color: #ffffff;
+}
+.logoOption{
+    width: 400px;
+    height: 300px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.buttonOption{
+    background-color: #DD3333;
+    color: white;
+    margin-top: 40px;
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
