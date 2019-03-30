@@ -1,22 +1,26 @@
-.rowS{
-    margin-top: 100px;
-}
-.containerLogo{
-    border: 1px solid red;
-    margin-bottom: 50px;
-    margin-left: 50px;
-    background-color: #ffffff;
-}
-.logoOption{
-    width: 400px;
-    height: 300px;
-    margin-left: 30px;
+
+.colBodyS{
+    margin: auto;
+    box-shadow: 0 0 65px #cdbe9f inset, 0 0 20px #beae8c inset;
     margin-top: 10px;
 }
-.buttonOption{
-    background-color: #DD3333;
-    color: white;
-    margin-top: 40px;
-    margin-left: 150px;
-    margin-bottom: 10px;
-}
+.containerBodyS .row .colBodyS p{
+    margin-top : 70px;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 900;
+  }
+  .containerLogo{
+      margin-left: 55px;
+      margin-top: 50px;
+  }
+ .logoOption{
+     width: 500px;
+     height: 300px;
+ }
+ .buttonOption{
+     background-color: #DD3333;
+     color: white;
+     margin-left: 160px;
+     margin-top: 20px;
+ }
