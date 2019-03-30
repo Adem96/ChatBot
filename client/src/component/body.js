@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import './CSS/body.css'
+import arrow from '../images/arrow.png'
+import arrowRight from '../images/arrowRight.png'
+import bot from '../images/bot.png'
+import nuage from '../images/nuage.png'
 class Body extends Component {
 
   render() {
@@ -7,7 +11,11 @@ class Body extends Component {
       <div className="container-fluid containerBody">
         <div className="row">
           <div className="col-lg-11 colBody">
-            <p>Espace Intranet</p>
+            <p><span><img className="arrow" src={arrow} alt="arrow"/></span>Espace Intranet</p> 
+            <img className="botLogo" src={bot} alt="arrowBot" /> 
+            <img className="nuageBot" src={nuage} alt="nuageBot" />
+            <input className="inputBot" type="text" autoComplete="off" placeholder="Vous avez des questions ?"></input>
+            <img className="arrowRight" src={arrowRight} alt="arrowBot" /> 
             <div className="formEtudiant">
               <p>
                 <span>|</span> L'espace étudiant

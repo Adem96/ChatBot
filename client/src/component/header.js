@@ -15,10 +15,9 @@ class Header extends Component {
             <nav className="navbar navbar-expand-sm">
               <ul className="navbar-nav">
                 <li className="nav-item"><NavLink className="NavLink" to="/Specialites"> Spécialités</NavLink> </li>
-                <li className="nav-item">Link 2</li>
-                <li className="nav-item">Link 3</li>
-                <li className="nav-item">Link 4</li>
-                <li className="nav-item">Link 5</li>
+                <li className="nav-item">Scolarité</li>
+                <li className="nav-item">Admission</li>
+                <li className="nav-item">Entraide</li>
               </ul>
             </nav>
             <div className="logout">LogOut</div>
