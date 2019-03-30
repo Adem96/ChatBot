@@ -4,8 +4,9 @@
   height: auto;
 }
 .containerBodyS .colBodyS{
-    border:  1px solid red;
     margin: auto;
+    box-shadow: 0 0 65px #cdbe9f inset, 0 0 20px #beae8c inset;
+    margin-top: 10px;
 }
 .containerBodyS .row .colBodyS p{
     margin-top : 70px;
@@ -26,8 +27,7 @@
     text-align: center;
     color: #DD3333;
     font-size: 25px;
-    padding: 20px;
-  
+    padding: 50px;  
   }
   .containerBodyS .row .colBodyS .formEtudiantS p span{
     color :#CCCCCC;
@@ -50,4 +50,39 @@
     height: 35px;
     color: white;
     background-color: #DD3333; 
+  }
+  .arrow{
+    width: 40px;
+    height: 60px;
+    margin-right: 10px;
+  }
+  .inputBotS{
+    width: 450px;
+    height: 60px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    padding-left: 30px;
+    background: rgb(221, 51, 51 , 0.4); 
+    font-size: 20px;
+    margin-left: -10px;
+    color: #DD3333;
+    font-weight: bold;
+  }
+
+  .inputBotS::placeholder{
+    color: #DD3333;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .arrowRightS{
+    position: absolute;
+    left: 620px;
+    margin-top: -55px;
+    cursor: pointer;
+  }
+
+  .inputDiv{
+    margin-top: 60px;
   }

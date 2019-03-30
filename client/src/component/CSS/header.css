@@ -21,7 +21,9 @@
   }
   .container-fluid .row .col-lg-12 .navbar {
     width: 70%;
-    margin-top: 0px;
+    margin-top: -20px;
+    margin-left: 50px;
+
   }
   .container-fluid .row .col-lg-12 .navbar ul {
     list-style: none;
@@ -30,10 +32,39 @@
     margin-right: 100px;
     color: whitesmoke;
     font-size: 20px;
+    border-bottom: 2px solid white;
+    cursor: pointer;
   }
-  .container-fluid .row .col-lg-12 .logout {
+  .NavLink{
+    color: white;
+    list-style: none;
+    text-decoration: none;
+  }
+  .NavLink:hover{
+    color: grey;
+    list-style: none;
+    text-decoration: none;
+  }
+
+ 
+  .container-fluid .row .col-lg-12 .robot {
     width: 10%;
     padding: 50px;
     font-size: 20px;
     font-weight: bold;
+  }
+ .robotImage{
+
+  margin-top: -40px;
+  margin-left: -60px;
+   height: 90px;
+ }
+
+ .pRobot{
+   position: absolute;
+   font-size: 14px;
+  left: 1150px;
+  top: 110px;
+  color: black;
+  font-weight: bold;
   }

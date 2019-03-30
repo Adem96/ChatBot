@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import arrow from "../images/arrow.png"
+import arrowRight from "../images/arrowRight.png"
 import "./CSS/specialites.css";
 class Specialites extends Component {
   constructor() {
@@ -47,21 +49,23 @@ class Specialites extends Component {
       <div className="container-fluid containerBodyS">
         <div className="row">
           <div className="col-lg-11 colBodyS">
-            <p>Spécialités</p>
+            <p><span><img className="arrow" src={arrow} alt="arrow"/></span>Spécialités</p>
             <div className="formEtudiantS">
               <p>
                 <span>|</span> Vous avez des questions ?
               </p>
-              <div>
+              <div className="inputDiv">
                 <input
+                  className="inputBotS"
                   type="text"
                   autocomplete="off"
-                  placeholder="Options , Specialites .."
+                  placeholder="Options, Specialites, Modules.."
                   name="message"
                   onChange = {this.onChangeMessage.bind(this)}
                 />
               </div>
-              <button onClick={this.testerExpress.bind(this)}>Demander</button>
+              {/* <button onClick={this.testerExpress.bind(this)}>Demander</button> */}
+              <img className="arrowRightS" src={arrowRight} alt="arrowBot" onClick={this.testerExpress.bind(this)}/> 
             </div>
           </div>
         </div>

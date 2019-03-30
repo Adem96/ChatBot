@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './CSS/header.css'
 import logo from "../images/logo_esprit_original.png";
+import robot from "../images/robot.png"
 import { NavLink } from "react-router-dom"
 
 class Header extends Component {
@@ -20,7 +21,8 @@ class Header extends Component {
                 <li className="nav-item">Entraide</li>
               </ul>
             </nav>
-            <div className="logout">LogOut</div>
+            <div className="robot"> <img className="robotImage"src={robot} alt="robotIA"/> </div>
+            <p className="pRobot"> Une platforme basé sur IA</p>
           </div>
         </div>
       </div>
