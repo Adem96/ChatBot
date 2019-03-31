@@ -95,17 +95,14 @@ router.post("/specialites", function(req, res, next) {
           break;
         case "moduleSpecialite":
           var specialite = new specialiteController();
-        console.log(response[0].queryResult.parameters.fields.Specialite.stringValue)
             specialite.getModulesSpecialite(
               response[0].queryResult.parameters.fields.Specialite.stringValue
               )
               .then(response => {
                 res.json({ intent: "ModuleSpecialite", response });
               });
-        
-
           break;
-       
+              
         default:
           res.json("je ne comprend pas ce que vous dites");
       }

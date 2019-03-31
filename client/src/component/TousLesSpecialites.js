@@ -59,29 +59,7 @@ class TousLesSpecialites extends Component {
         
           </div>
 </div>
-        </div>
-          {/* <div className="col-lg-5 containerLogo">
-            <img className="logoOption" src={sim} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
-          </div>
-          <div className="col-lg-5 containerLogo">
-            <img className="logoOption" src={twin} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
-          </div>
-          <div className="col-lg-5 containerLogo">
-            <img className="logoOption" src={ds} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
-          </div>
-          <div className="col-lg-5 containerLogo">
-            <img className="logoOption" src={sleam} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
-          </div>
-          <div className="col-lg-5 containerLogo">
-            <img className="logoOption" src={gl} alt="optionSim" />
-            <button className="buttonOption">Plus d'informations</button>
-          </div> */}
-
-          
+        </div>         
         </div>
       </div>
     );
