@@ -1,0 +1,40 @@
+.containerDetailsS{
+    width: 95%;
+    height: auto;
+  }
+  .containerDetailsS .colDetailsS{
+      margin: auto;
+      margin-top: 10px;
+      box-shadow: 0 0 65px #cdbe9f inset, 0 0 20px #beae8c inset;
+  }
+  .containerDetailsS .row .colDetailsS p span .arrow{
+    width: 40px;
+    height: 60px;
+    margin-right: 10px;
+  }
+  .containerDetailsS .row .colDetailsS .title{
+    margin-top : 70px;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 900;
+  }
+  .elementRow{
+      margin-bottom: 30px;
+  }
+  .elementRow .elementCol{
+      background-color: white;
+      width: 80%;
+      margin: auto;
+  }
+  .elementRow .elementCol p{
+    color :#CCCCCC;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .elementRow .elementCol p span{
+    text-align: center;
+    color: #DD3333;
+    font-size: 25px;
+    padding: 20px;
+    font-weight: 500;
+  }
