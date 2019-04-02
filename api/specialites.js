@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Specialite = require("../models/specialite.js");
 var specialiteController = require("../controller/specialites.js");
-
+var User = require('../models/user')
 var chatbotConnect = require("../api/chatbotConnect.js");
 
 router.post("/", (req, res) => {
@@ -26,67 +26,11 @@ router.post("/specialites", function(req, res, next) {
     
       switch (response[0].queryResult.intent.displayName) {
         case "listSpecialites":
-          switch (
-            response[0].queryResult.parameters.fields.Specialite.stringValue
-          ) {
-            case "TWIN":
-              var specilaite = new specialiteController();
-              specilaite.getSpecialite("TWIN").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            case "GL":
-              var specialite = new specialiteController();
-              specialite.getSpecialite("GL").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            case "SIM":
-              var specialite = new specialiteController();
-              specialite.getSpecialite("SIM").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            case "ERP":
-              var specialite = new specialiteController();
-              specialite.getSpecialite("ERPBI").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            case "InFini":
-              var specialite = new specialiteController();
-              specialite.getSpecialite("INFINI").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            case "SIGMA":
-              var specialite = new specialiteController();
-              specialite.getSpecialite("SIGMA").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            case "NIDS":
-              var specialite = new specialiteController();
-              specialite.getSpecialite("NIDS").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            case "SLEAM":
-              var specialite = new specialiteController();
-              specialite.getSpecialite("SLEAM").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            case "ArTic":
-              var specialite = new specialiteController();
-              specialite.getSpecialite("ARTIC").then(response => {
-                res.json({ intent: "detailsSpecialite", response });
-              });
-              break;
-            default:
-              res.json("error");
-          }
-          break;
+        var specilaite = new specialiteController();
+             specilaite.getSpecialite(response[0].queryResult.parameters.fields.Specialite.stringValue).then(response => {
+               res.json({ intent: "detailsSpecialite", response });
+           });
+        break;
         case "Specialites":
           var specialite = new specialiteController();
           specialite.getAllSpecialites().then(response => {
@@ -102,9 +46,16 @@ router.post("/specialites", function(req, res, next) {
                 res.json({ intent: "ModuleSpecialite", response });
               });
           break;
+        // case "recommandationSpecialite" :
+        // // 1er etape : recuperer les informations de l'utilisateur qui demande
+        // var emailUser = req.body.email
+        //       User.findOne({email : emailUser},(err,user)=>{
+        //         // 2em etape developper un algorithme qui calcul 
+        //       })
               
+        // break;
         default:
-          res.json("je ne comprend pas ce que vous dites");
+          res.json({error : "je ne comprend pas ce que vous dites"});
       }
     })
     .catch(function(err) {
