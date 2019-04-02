@@ -48,9 +48,9 @@ router.post("/rechercher", function(req, res, next) {
     var msg = req.body.msg;
     chatbotConnect(msg)
         .then(function(response) {
-
+    
             switch (response[0].queryResult.intent.displayName) {
-                case "covoiturage_req":
+                case "covoiturage_req":              
                     var covoiturage = new covoiturageController();
                     console.log(response[0].queryResult.parameters.fields.destination.stringValue);
                     if(response[0].queryResult.parameters.fields.destination.stringValue=="" && i==0){
