@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Specialites from './component/specialites'
 import TousLesSpecialites from './component/TousLesSpecialites'
 import DetailsSpecialite from './component/detailsSpecialite'
+import Scolarite from './component/scolarite'
 import Footer from "./component/footer";
 
 
@@ -20,7 +21,9 @@ class App extends Component {
             <Route path="/Specialites" component={Specialites} exact />
             <Route path="/TousSpecialites" component={TousLesSpecialites} exact />
             <Route path="/DetailsSpecialite" component={DetailsSpecialite} exact />
-          </Switch>
+            <Route path="/DetailsSpecialite" component={Scolarite} exact />
+
+      </Switch>
           <Footer />
         </BrowserRouter>
       </div>
