@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Specialite = require("../models/specialite.js");
 var specialiteController = require("../controller/specialites.js");
-
+var User = require('../models/user')
 var chatbotConnect = require("../api/chatbotConnect.js");
 
 router.post("/", (req, res) => {
@@ -46,7 +46,14 @@ router.post("/specialites", function(req, res, next) {
                 res.json({ intent: "ModuleSpecialite", response });
               });
           break;
+        // case "recommandationSpecialite" :
+        // // 1er etape : recuperer les informations de l'utilisateur qui demande
+        // var emailUser = req.body.email
+        //       User.findOne({email : emailUser},(err,user)=>{
+        //         // 2em etape developper un algorithme qui calcul 
+        //       })
               
+        // break;
         default:
           res.json({error : "je ne comprend pas ce que vous dites"});
       }
