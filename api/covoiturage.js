@@ -18,9 +18,9 @@ router.post("/recherche", function(req, res, next) {
     var msg = req.body.msg;
     chatbotConnect(msg)
         .then(function(response) {
-
+    
             switch (response[0].queryResult.intent.displayName) {
-                case "covoiturage_req":
+                case "covoiturage_req":              
                     var covoiturage = new covoiturageController();
                     covoiturage.getCovoiturage(response[0].queryResult.parameters.fields.Specialite.stringValue).then(response => {
                         res.json({ intent: "covoiturage_req", response });
