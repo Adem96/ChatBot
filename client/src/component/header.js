@@ -26,7 +26,7 @@ class Header extends Component {
               </ul>
             </nav>
             <div className="robot"> <img className="robotImage"src={robot} alt="robotIA"/> </div>
-            <p className="pRobot"> Une platforme basé sur IA</p>
+            <p className="pRobot"> Une platforme basée sur IA</p>
           </div>
         </div>
       </div>
