@@ -6,7 +6,6 @@ import { NavLink } from "react-router-dom"
 
 class Header extends Component {
 
-
   render() {
     return (
       <div className="container-fluid containerHeader">
@@ -23,6 +22,7 @@ class Header extends Component {
                 <li className="nav-item">Scolarité</li>
                 <li className="nav-item">Admission</li>
                 <li className="nav-item">Entraide</li>
+                <li hidden={true} className="nav-item">Profile</li>
               </ul>
             </nav>
             <div className="robot"> <img className="robotImage"src={robot} alt="robotIA"/> </div>

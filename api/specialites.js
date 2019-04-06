@@ -4,7 +4,7 @@ var Specialite = require("../models/specialite.js");
 var specialiteController = require("../controller/specialites.js");
 var User = require('../models/user')
 var chatbotConnect = require("../api/chatbotConnect.js");
-
+var brain = require("brain.js")
 router.post("/", (req, res) => {
   var specialite = new Specialite(req.body);
   specialite.save((err, specialite) => {
@@ -54,6 +54,9 @@ router.post("/specialites", function(req, res, next) {
         //       })
               
         // break;
+        case "recommandationSpecialite" :
+              
+        break;
         default:
           res.json({error : "je ne comprend pas ce que vous dites"});
       }
