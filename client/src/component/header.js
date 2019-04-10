@@ -5,8 +5,8 @@ import robot from "../images/robot.png"
 import { NavLink } from "react-router-dom"
 
 class Header extends Component {
-
-  render() {
+ 
+  render() {  
     return (
       <div className="container-fluid containerHeader">
         <div className="row">
@@ -18,7 +18,7 @@ class Header extends Component {
             </div>
             <nav className="navbar navbar-expand-sm">
               <ul className="navbar-nav">
-                <li className="nav-item"><NavLink className="NavLink" to="/Specialites"> Spécialités</NavLink> </li>
+                <li className="nav-item"><NavLink className="NavLink" to="/Specialites">Spécialités</NavLink> </li>
                 <li className="nav-item">Scolarité</li>
                 <li className="nav-item">Admission</li>
                 <li className="nav-item">Entraide</li>

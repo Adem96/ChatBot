@@ -10,6 +10,7 @@ import password from "../images/password.png";
 import close from "../images/close.png"
 import axios from "axios"
 import jwt_decode from "jwt-decode"
+
 class Body extends Component {
   constructor() {
     super();
@@ -23,6 +24,7 @@ class Body extends Component {
   }
   componentWillMount() {
     Modal.setAppElement('body');
+
 }
 
   openModal() {
@@ -61,6 +63,7 @@ class Body extends Component {
 
   render() {
     return (
+      
       <div className="container-fluid containerBody">
         <div className="row">
           <div className="col-lg-11 colBody">
