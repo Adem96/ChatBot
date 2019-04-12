@@ -28,7 +28,8 @@ router.post("/register", (req, res) => {
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
             age : req.body.age,
-            role : req.body.role
+            role : req.body.role,
+            notes : req.body.notes
         });
         user.save((err, user) => {
           if (err) res.json(err);

@@ -2,10 +2,10 @@ var mongoose = require('mongoose')
 var specialite = require('./specialite.js').schema;
 var subjects = require('./subject.js').schema;
 var reclamations = require('./reclamation.js').schema;
-
 var notes = new mongoose.Schema({
     "matiere" : {type : String},
-    "note" : {type : Number}
+    "note" : {type : Number},
+    "coef" : {type : Number}
 })
 
 var userSchema = new mongoose.Schema({

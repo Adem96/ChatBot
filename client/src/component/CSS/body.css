@@ -93,3 +93,111 @@
     left: 850px;
     top: 10px;
   }
+
+  .modalClass{
+    background-color:rgba(128,128,128,1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 70%;
+    z-index: 10; /* keep on top of other elements on the page */
+    box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);
+  }
+
+  .loginDiv{  
+    margin-top: 3%;
+  }
+  .registerDiv{
+    margin-top: 3%;
+  }
+  .elementLogin {
+    box-shadow: -10px 0px 20px rgba(0,0,0,0.6);
+    background: #B40304;
+    border-radius: 30px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0px;
+    margin-left: 23px;
+  }
+  .elementLogin p {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .elementLogin div{
+    text-align: center;
+  }
+  .elementLogin button{
+    width: 100px;
+    margin-left: 90px;
+  }
+ 
+  .elementLogin div span img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .elementLogin div span input{
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    width: 220px;
+  }
+  .elementLogin button{
+    box-shadow: -10px 0px 20px rgba(0,0,0,0.6);
+    background: #DE0405;
+    border-radius: 12px;
+    border: none;
+    color: white;
+  }
+
+  .elementRegister{
+    box-shadow: -10px 0px 20px rgba(0,0,0,0.6);
+    background: #B40304;
+    border-radius: 30px;
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0px;
+  }
+
+  .elementRegister p {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .elementRegister input{
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    width: 85%;
+    margin-left: 20px;
+  }
+  .elementRegister button{
+    border-radius: 10px;
+    outline: none;
+    padding-left: 10px;
+    width: 85%;
+    margin-left: 20px;
+    box-shadow: -10px 0px 20px rgba(0,0,0,0.6);
+    background: #DE0405;
+    border-radius: 12px;
+    border: none;
+    color: white;
+  }
+  .closeBtn{
+   margin-left: 43%;
+   cursor: pointer;
+  }

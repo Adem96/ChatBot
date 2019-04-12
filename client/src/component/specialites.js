@@ -10,6 +10,7 @@ class Specialites extends Component {
       message: ""
     };
   }
+
   testerExpress(e) {
     e.preventDefault();
     console.log(this.state.message)

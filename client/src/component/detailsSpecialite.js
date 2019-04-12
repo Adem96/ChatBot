@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import "./CSS/detailsSpecialite.css";
 import arrow from '../images/arrow.png'
 class DetailsSpecialite extends Component {
-  componentDidMount() {
-    console.log(this.props.location.state.specialite);
-  }
+
   render() {
     return (
       <div className="container-fluid containerDetailsS">
@@ -43,20 +41,20 @@ class DetailsSpecialite extends Component {
                 </div>
                 <div className="col-lg-11 elementCol">
                     {this.props.location.state.specialite.metiers.map(m => {
-                        return <li>{m.nom}</li>
+                        return <li key={m._id}>{m.nom}</li>
                     })}
                 </div>
             </div>
-            <div className="row elementRow">
+            <div className="row elementRow" > 
                 <div className="col-lg-11 elementCol">
                     <p>| <span>Modules</span></p>
                 </div>
                 <div className="col-lg-11 elementCol">
                     
                     {this.props.location.state.specialite.modulesSpecialite.map(m => {
-                        return <li>{m.nom}
-                            <ul>{m.listMatieres.map(mat => {
-                                return <li>{mat.nom}</li>
+                        return <li key={m._id}>{m.nom}
+                            <ul key={m._id}>{m.listMatieres.map(mat => {
+                                return <li key={mat._id}>{mat.nom}</li>
                             })}</ul>
                         </li>
                     })}
