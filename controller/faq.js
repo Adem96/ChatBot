@@ -1,4 +1,8 @@
 var Faq = require("../models/faq.js");
+var subject = require("../models/subject")
+var Calendar = require("../models/AnnualCalendar")
+
+
 
 function faqs() {
 
@@ -19,6 +23,27 @@ function faqs() {
             })
         })
     }
+
+    this.getAllNotes = () =>{
+        return new Promise(function(resolve,reject){
+            subject.find((err,subs)=>{
+                if(err) reject(err)
+                else resolve(subs)
+            })
+        })
+    }
+
+    this.getCalendar = () =>{
+        return new Promise(function(resolve,reject){
+            Calendar.find((err,cal)=>{
+                if(err) reject(err)
+                else resolve(cal)
+            })
+        })
+    }
+
+
+
 
 }
 module.exports = faqs;
