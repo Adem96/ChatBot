@@ -17,12 +17,16 @@ class IsConnect extends Component{
             prenom : user.prenom
         }) 
     }
+    disconnect(){
+        localStorage.removeItem("token")
+        this.props.disconnect()
+    }
     render(){
         return(
             <div className="container-fluid isConnect">
                 <ul>
                     <li>{this.state.nom} {this.state.prenom}</li>
-                    <li>Déconnexion</li>
+                    <li onClick={this.disconnect.bind(this)}>Déconnexion</li>
                 </ul>
             </div>
         )

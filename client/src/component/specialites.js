@@ -12,7 +12,7 @@ class Specialites extends Component {
     };
   }
 
-  testerExpress(e) {
+  apiSpecialite(e) {
     e.preventDefault();
     console.log(this.state.message)
     const msg = {
@@ -30,16 +30,15 @@ class Specialites extends Component {
           pathname : '/DetailsSpecialite',
           state : { specialite : res.data.response}
         })
+      }else if(res.data.intent === "recommandationSpecialite"){
+        this.props.history.push({
+          pathname : '/suggestion',
+          state : { suggestion : res.data.Specialite , notes : res.data.notes}
+        })
       }
     });
   }
-  // testerExpress(e){
-  //   e.preventDefault();
-  //   this.props.history.push({
-  //     pathname: '/',
-  //     state: { some: 'state' }
-  //   })
-  // }
+
   onChangeMessage(e){
     this.setState({
       message : e.target.value
@@ -68,8 +67,7 @@ class Specialites extends Component {
                   onChange = {this.onChangeMessage.bind(this)}
                 />
               </div>
-              {/* <button onClick={this.testerExpress.bind(this)}>Demander</button> */}
-              <img className="arrowRightS" src={arrowRight} alt="arrowBot" onClick={this.testerExpress.bind(this)}/> 
+              <img className="arrowRightS" src={arrowRight} alt="arrowBot" onClick={this.apiSpecialite.bind(this)}/> 
             </div>
           </div>
         </div>

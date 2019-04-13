@@ -5,11 +5,16 @@ class Profile extends Component {
   componentWillMount() {
    
   }
+  disconnect(){
+    this.props.history.push({
+      pathname : '/'
+    })
+  }
   render() {
     return (
       <>
         <Header />
-        <IsConnect />
+        <IsConnect disconnect={this.disconnect.bind(this)}/>
       </>
     );
   }

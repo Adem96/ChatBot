@@ -55,7 +55,6 @@ router.post("/specialites", function(req, res, next) {
         case "recommandationSpecialite":
           var net = new brain.NeuralNetwork();
           net.train(input);
-          //localStorag.token
           User.findOne({ _id: "5cb065f5a20a79011042c17a" }, (err, user) => {
             if (err) res.json({ error: err });
             if (!user) res.json({ error: "User n'exsite pas" });
@@ -423,7 +422,8 @@ router.post("/specialites", function(req, res, next) {
          
                  break;
                 }
-                res.json({Specialite : maxSpecialite , notes : tabNotes})
+                res.json({intent :"recommandationSpecialite" ,Specialite : maxSpecialite , notes : tabNotes})
+            
               })
       
              

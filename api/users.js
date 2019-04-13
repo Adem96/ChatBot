@@ -47,7 +47,7 @@ router.post("/register", (req, res) => {
       if(!user) res.json({error : "User n'existe pas"});
       else {
         if(bcrypt.compareSync(req.body.password,user.password)){
-          var token = jwt.sign({user},'secret',{expiresIn:3600})
+          var token = jwt.sign({user},'secret',{expiresIn:2})
           res.json(token)
         }else{
           res.status(401).json("Mot de passe incorrecte")
