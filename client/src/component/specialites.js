@@ -3,6 +3,7 @@ import axios from "axios";
 import arrow from "../images/arrow.png"
 import arrowRight from "../images/arrowRight.png"
 import "./CSS/specialites.css";
+import Header from "../component/header"
 class Specialites extends Component {
   constructor() {
     super();
@@ -47,6 +48,8 @@ class Specialites extends Component {
 
   render() {
     return (
+      <>
+      <Header />
       <div className="container-fluid containerBodyS">
         <div className="row">
           <div className="col-lg-11 colBodyS">
@@ -71,6 +74,7 @@ class Specialites extends Component {
           </div>
         </div>
       </div>
+      </>
     );
   }
 }

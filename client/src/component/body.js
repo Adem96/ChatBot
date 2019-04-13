@@ -10,13 +10,14 @@ import password from "../images/password.png";
 import close from "../images/close.png"
 import axios from "axios"
 import jwt_decode from "jwt-decode"
-
+import Header from "../component/header"
 class Body extends Component {
   constructor() {
     super();
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      auth : false
     };
 
     this.openModal = this.openModal.bind(this);
@@ -40,7 +41,6 @@ class Body extends Component {
       password: this.refs.password.value
     }
     axios.post("http://localhost:4000/users/login",authentication).then(res => {
-      console.log(res.data)
       localStorage.setItem("token" , res.data)
       this.props.history.push({
         pathname : '/profile'
@@ -63,7 +63,8 @@ class Body extends Component {
 
   render() {
     return (
-      
+      <>
+      <Header />
       <div className="container-fluid containerBody">
         <div className="row">
           <div className="col-lg-11 colBody">
@@ -136,28 +137,19 @@ class Body extends Component {
                   <div>
                     <span>
                       <img src={password} alt="passwordLogo" />{" "}
-                      <input type="text" placeholder="Password" ref="password"/>
+                      <input type="password" placeholder="Password" ref="password"/>
                     </span>
                   </div>
                   <button onClick={this.login.bind(this)}>Login</button>
                 </div>
               </div>
-              <div className="col-6 registerDiv">
-                <div className="elementRegister" >
-                  <p>Inscription</p>
-                  <input type="text" placeholder="A"/>
-                  <input type="text" placeholder="B"/>
-                  <input type="text" placeholder="C"/>
-                  <input type="text" placeholder="D"/>
-                  <input type="text" placeholder="E"/>
-                  <button>Inscription</button>
-                </div>
-              </div>
+          
             </div>
           </div>
  
         </Modal>
       </div>
+      </>
     );
   }
 }

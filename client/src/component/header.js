@@ -5,6 +5,20 @@ import robot from "../images/robot.png"
 import { NavLink } from "react-router-dom"
 
 class Header extends Component {
+
+  constructor(){
+    super()
+    this.state = {
+      isConnect : false
+    }
+  }
+  componentWillMount(){
+    if(localStorage.token !== undefined){
+      this.setState({
+        isConnect : true
+      })
+    }
+  }
  
   render() {  
     return (
@@ -22,7 +36,7 @@ class Header extends Component {
                 <li className="nav-item">Scolarité</li>
                 <li className="nav-item">Admission</li>
                 <li className="nav-item">Entraide</li>
-                <li hidden={true} className="nav-item">Profile</li>
+                <li hidden={!this.state.isConnect} className="nav-item">Profile</li>
               </ul>
             </nav>
             <div className="robot"> <img className="robotImage"src={robot} alt="robotIA"/> </div>

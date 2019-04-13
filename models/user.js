@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 var specialite = require('./specialite.js').schema;
-//5cade60f508d2b323875b09f test
+//5cb065f5a20a79011042c17a test
 var notes = new mongoose.Schema({
     "matiere" : {type : String},
     "note" : {type : Number},

@@ -8,6 +8,7 @@ import ds from "../images/ds.png";
 import arrow from "../images/arrow.png"
 import arrowRight from "../images/arrowRight.png"
 import axios from 'axios'
+import Header from "../component/header"
 class TousLesSpecialites extends Component {
   constructor() {
     super();
@@ -48,6 +49,8 @@ class TousLesSpecialites extends Component {
   }
   render() {
     return (
+      <>
+      <Header />
       <div className="container-fluid containerBodyS">
         <div className="row rowS">
         <div className="col-lg-11 colBodyS">
@@ -89,6 +92,7 @@ class TousLesSpecialites extends Component {
         </div>         
         </div>
       </div>
+      </>
     );
   }
 }
