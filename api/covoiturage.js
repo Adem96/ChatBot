@@ -5,8 +5,19 @@ var user = require("../models/user.js")
 var covoiturageController = require("../controller/covoiturage.js");
 
 
+
+
+
 var i = 0;
 var chatbotConnect = require("../api/chatbotConnect.js");
+
+router.get("/location",(req, res, next) =>{
+    const ipInfo = req.ipInfo;
+    console.log(req.ipInfo)
+    var message = `Hey, you are browsing from ${ipInfo.city}, ${ipInfo.country}`;
+    res.send(message);
+    });
+
 
 router.post("/ajouter", (req, res) => {
     var cov = new Covoiturage(req.body);
@@ -17,27 +28,43 @@ router.post("/ajouter", (req, res) => {
 });
 
 router.post("/accepter/:id", (req, res) => {
-     user.findById("5c9b4f4c544d9a3d7cad21f0"), function(err, p) {
-        if (!p){
-            console.log(1)
-            return next(new Error('Could not load Document'))}
-        else {
-            // do your updates here
+    var x = true
 
-             console.log(2)
-            Covoiturage.findById(req.params.id), function(err, p2) {
-                p2.placeDispo--;
-                p2.passagers.push(p)
-                console.log(p2)
-                p2.save(function (err) {
-                    if (err)
-                        console.log('error')
-                    else
-                        res.json('success')
-                });
-            }}
+    user.findOne({nom: "ben fadhel"}, (err, u) => {
+        Covoiturage.findOne({_id: req.params.id}, (err, c) => {
 
-        }})
+             c.passagers.forEach(function (ee) {
+                if(ee.id==u.id){
+                    x=false;
+                    console.log(x+"  "+ee.id)
+                }
+
+            })
+
+
+        if(x==false)
+                res.json({info :"tu est deja inscrit"})
+        else   if(c.placeDispo==0)
+            res.json({error:"plus de place diponible"})
+            else{
+            c.placeDispo--;
+            c.passagers.push(u)
+            console.log(c)
+            c.save(function (err) {
+                if (err)
+                    console.log('error')
+                else
+                    res.json('success')
+            });
+        }});
+    });
+})
+
+
+
+
+
+
 
 
 

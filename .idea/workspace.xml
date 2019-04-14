@@ -63,60 +63,119 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/api/covoiturage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="21" />
+=======
         <entry file="file://$PROJECT_DIR$/api/specialites.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="697">
               <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1035">
+              <caret line="45" column="13" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="13" />
+=======
         <entry file="file://$PROJECT_DIR$/models/user.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/controller/pfe.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+=======
         <entry file="file://$PROJECT_DIR$/controller/faq.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
               <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/api/revision.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1035">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="21" />
+=======
         <entry file="file://$PROJECT_DIR$/models/reclamation.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/api/users.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/pfe.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+=======
         <entry file="file://$PROJECT_DIR$/api/covoiturage.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="782">
               <caret line="46" selection-start-line="46" selection-end-line="46" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client_secret.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" column="76" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="76" />
+=======
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/faq.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1596">
               <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/EspritBot.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/modulesSpecialite.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+=======
         <entry file="file://$PROJECT_DIR$/models/AnnualCalendar.js">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -135,15 +194,23 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="11" />
+=======
         <entry file="file://$PROJECT_DIR$/api/users.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="833">
               <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
             </state>
           </provider>
         </entry>
@@ -164,9 +231,23 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+=======
         <option value="$PROJECT_DIR$/controller/covoiturage.js" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
         <option value="$PROJECT_DIR$/models/covoiturage.js" />
+        <option value="$PROJECT_DIR$/controller/covoiturage.js" />
+        <option value="$PROJECT_DIR$/models/revision.js" />
+        <option value="$PROJECT_DIR$/controller/revision.js" />
         <option value="$PROJECT_DIR$/api/covoiturage.js" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/models/stagePFE.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/controller/pfe.js" />
+        <option value="$PROJECT_DIR$/client_secret.json" />
+        <option value="$PROJECT_DIR$/api/revision.js" />
+        <option value="$PROJECT_DIR$/api/pfe.js" />
+=======
         <option value="$PROJECT_DIR$/api/scolarite.js" />
         <option value="$PROJECT_DIR$/models/faq.js" />
         <option value="$PROJECT_DIR$/app.js" />
@@ -178,6 +259,7 @@
         <option value="$PROJECT_DIR$/models/reclamation.js" />
         <option value="$PROJECT_DIR$/controller/faq.js" />
         <option value="$PROJECT_DIR$/api/faq.js" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
       </list>
     </option>
   </component>
@@ -222,6 +304,8 @@
               <item name="ChatBot" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
+=======
             <path>
               <item name="ChatBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="ChatBot" type="462c0819:PsiDirectoryNode" />
@@ -237,6 +321,7 @@
               <item name="ChatBot" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
           </expand>
           <select />
         </subPane>
@@ -245,7 +330,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/GitHub Desktop.lnk" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/node/todoProject" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -290,15 +375,29 @@
       <option name="presentableId" value="Default" />
       <updated>1554193966612</updated>
       <workItem from="1554193969686" duration="3881000" />
+<<<<<<< HEAD
+      <workItem from="1554213948334" duration="1374000" />
+      <workItem from="1554231214858" duration="8951000" />
+      <workItem from="1554241230211" duration="5804000" />
+      <workItem from="1554320372871" duration="10485000" />
+      <workItem from="1554412866699" duration="11362000" />
+      <workItem from="1554464208955" duration="3435000" />
+      <workItem from="1555058421016" duration="6490000" />
+      <workItem from="1555253054277" duration="70000" />
+=======
       <workItem from="1554317848832" duration="1839000" />
       <workItem from="1554373930800" duration="1249000" />
       <workItem from="1554398600967" duration="11858000" />
       <workItem from="1554465567164" duration="1023000" />
       <workItem from="1555058427622" duration="839000" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="51852000" />
+=======
     <option name="totallyTimeSpent" value="25156000" />
   </component>
   <component name="TodoView">
@@ -309,11 +408,16 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
+<<<<<<< HEAD
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1875" />
+=======
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14937212" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -323,11 +427,19 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31965813" />
+=======
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966952" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49438202" visible="true" weight="0.29886687" />
       <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.505618" side_tool="true" visible="true" weight="0.29886687" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -355,6 +467,19 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/controller/specialites.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="7" selection-start-line="7" selection-start-column="2" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/modulesSpecialite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="12" selection-end-line="14" selection-end-column="76" />
+=======
     <entry file="file://$PROJECT_DIR$/models/modulesSpecialite.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -396,11 +521,65 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/specialites.js">
+    <entry file="file://$PROJECT_DIR$/api/specialites.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="345">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/chatbotConnect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/covoiturage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="56" selection-end-line="13" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/revision.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61778">
+          <caret line="2686" column="27" selection-start-line="2686" selection-start-column="27" selection-end-line="2686" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/revision.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="5" column="29" selection-end-line="11" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/specialite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="3" selection-start-line="3" selection-end-line="6" selection-end-column="2" />
+=======
         <state relative-caret-position="374">
           <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
         </state>
@@ -454,11 +633,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/user.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="92">
+          <caret line="4" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/stagePFE.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="10" />
+=======
         <state relative-caret-position="85">
           <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
         </state>
@@ -475,11 +666,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/covoiturage.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="483">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/pfe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/revision.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/users.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client_secret.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="76" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EspritBot.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/modulesSpecialite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/pfe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+=======
         <state relative-caret-position="782">
           <caret line="46" selection-start-line="46" selection-end-line="46" />
         </state>
@@ -513,6 +764,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1596">
           <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
         </state>
       </provider>
     </entry>
