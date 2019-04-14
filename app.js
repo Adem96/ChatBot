@@ -12,13 +12,12 @@ var specialites = require('./api/specialites.js')
 var moduleSpecialite = require('./api/modulesSpecialite.js')
 var admin = require('./api/admin')
 var covRouter = require('./api/covoiturage')
-<<<<<<< HEAD
+
 var revRouter = require('./api/revision')
 var pfeRouter = require('./api/pfe')
-=======
+
 var faqRouter = require('./api/faq')
 
->>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
 
 var app = express();
 
@@ -43,13 +42,9 @@ app.use('/admin',admin)
 app.use('/options',specialites);
 app.use('/modulesSpecialite',moduleSpecialite)
 app.use('/cov',covRouter)
-<<<<<<< HEAD
 app.use('/revision',revRouter)
 app.use('/pfe',pfeRouter)
-=======
-app.use('/faq',faqRouter)
 
->>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
 
 const expressip = require('express-ip');
 app.use(expressip().getIpInfoMiddleware);

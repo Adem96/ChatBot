@@ -8,7 +8,7 @@ import DetailsSpecialite from "./component/detailsSpecialite";
 import SuggestionSpecialite from "./component/suggestionSpecialite"
 import Footer from "./component/footer";
 import Profile from "./component/profile";
-
+import Entraid from "./component/entraid"
 class App extends Component {
 
   componentWillMount(){
@@ -28,6 +28,7 @@ class App extends Component {
               <Route path="/DetailsSpecialite" component={DetailsSpecialite} exact />
               <Route path="/suggestion" component={SuggestionSpecialite} exact />
               <Route path="/Profile" component={Profile} exact />
+              <Route path="/Entraid" component={Entraid} exact />
           </Switch>
           <Footer />
         </BrowserRouter>

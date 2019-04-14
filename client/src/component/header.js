@@ -37,8 +37,8 @@ class Header extends Component {
                 <li className="nav-item"><NavLink className="NavLink" to="/Specialites">Spécialités</NavLink> </li>
                 <li className="nav-item">Scolarité</li>
                 <li className="nav-item">Admission</li>
-                <li className="nav-item">Entraide</li>
-                <li hidden={!this.state.isConnect} className="nav-item">Profile</li>
+                <li className="nav-item"><NavLink className="NavLink" to="/Entraid">Entraide</NavLink></li>
+                <li hidden={!this.state.isConnect} className="nav-item"><NavLink className="NavLink" to="/Profile">Profile</NavLink> </li>
               </ul>
             </nav>
             <div className="robot"> <img className="robotImage"src={robot} alt="robotIA"/> </div>
