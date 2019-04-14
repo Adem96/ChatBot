@@ -20,6 +20,12 @@ router.get("/", (req, res) => {
     else res.json(specialite);
   });
 });
+router.get("/calculScore",(req,res) => {
+  var specilaite = new specialiteController();
+  specilaite.CalculScore(req.body.id).then(response => {
+    res.json(response)
+  })
+})
 
 router.post("/specialites", function(req, res, next) {
   var msg = req.body.msg;
