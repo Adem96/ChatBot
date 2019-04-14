@@ -17,6 +17,7 @@ var userSchema = new mongoose.Schema({
     prenom : {type : String},
     password : {type:String , required : true},
     email : {type : String , required : true},
+    classe : {type : String , default : null},
     age : {type : Number},
     specialite : {type : specialite , default : null},
     notes : [notes],

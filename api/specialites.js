@@ -6,6 +6,7 @@ var User = require("../models/user");
 var chatbotConnect = require("../api/chatbotConnect.js");
 var brain = require("brain.js");
 var input = require("../notes.json");
+
 router.post("/", (req, res) => {
   var specialite = new Specialite(req.body);
   specialite.save((err, specialite) => {
@@ -22,6 +23,8 @@ router.get("/", (req, res) => {
 
 router.post("/specialites", function(req, res, next) {
   var msg = req.body.msg;
+  var id = req.body.id
+  console.log(id)
   chatbotConnect(msg)
     .then(function(response) {
       switch (response[0].queryResult.intent.displayName) {
@@ -55,7 +58,7 @@ router.post("/specialites", function(req, res, next) {
         case "recommandationSpecialite":
           var net = new brain.NeuralNetwork();
           net.train(input);
-          User.findOne({ _id: "5cb065f5a20a79011042c17a" }, (err, user) => {
+          User.findOne({ _id: id }, (err, user) => {
             if (err) res.json({ error: err });
             if (!user) res.json({ error: "User n'exsite pas" });
             else {
@@ -129,17 +132,17 @@ router.post("/specialites", function(req, res, next) {
               // });
 
               output = net.run({
-                "Sys. De Gestion de Bases de Données": 20 / 20,
-                "Compléments de Mathématique": 8 / 20,
-                "Analyse de Fourrier": 12 / 20,
-                "Analyse numérique": 8 / 20,
-                "Probabilité & Statistique": 2 / 20,
-                "Projet développement Web Java": 16 / 20,
-                "Conception par Objet et Programmation Java": 16 / 20,
-                "Programmation des terminaux mobiles": 10 / 20,
-                "Génie logiciel & atelier GL": 11 / 20,
-                "Technologies Web 2.0": 18 / 20,
-                "Langage de Modélisation (UML)": 10 / 20
+                "Sys. De Gestion de Bases de Données": bddNote / 20,
+                "Compléments de Mathématique": math1Note / 20,
+                "Analyse de Fourrier": math2Note / 20,
+                "Analyse numérique": math3Note / 20,
+                "Probabilité & Statistique": probaNote / 20,
+                "Projet développement Web Java": piNote / 20,
+                "Conception par Objet et Programmation Java": javaNote / 20,
+                "Programmation des terminaux mobiles": mobileNote / 20,
+                "Génie logiciel & atelier GL": glNote / 20,
+                "Technologies Web 2.0": webNote / 20,
+                "Langage de Modélisation (UML)": umlNote / 20
               })
               var glValue = output["gl"]
               var twinValue = output["twin"]
@@ -189,7 +192,7 @@ router.post("/specialites", function(req, res, next) {
                 break;
               }
               var specialite = new specialiteController();
-              specialite.getNotesUser("5cb065f5a20a79011042c17a").then(user => {
+              specialite.getNotesUser(id).then(user => {
                 var tabNotes =[]
                 switch(maxSpecialite){
                   case "twin" :  

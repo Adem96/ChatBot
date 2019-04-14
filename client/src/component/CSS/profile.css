@@ -1,0 +1,72 @@
+.profile{
+    margin-top: 50px;
+    overflow-x: hidden
+}
+.profile .tabInfo{
+    margin-bottom: 50px;
+    background: white;
+}
+.tabInfo{
+    width: 80%;
+    margin: auto;
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 10px 2px rgb(159,60,51);
+    margin-top: 10px;
+}
+.tabInfo h2{
+    text-align: center;
+    color : #9F3C33;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.tabInfo .table{
+    width: 80%;
+    border-top : 2px solid #9F3C33;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 0px 10px 2px rgb(159,60,51);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.tabInfo .table thead{
+    background-color: #9F3C33;
+    color: white;
+    text-align: center
+}
+.tabInfo .table tbody{
+    text-align: center;
+}
+
+
+
+
+.tabNotes{
+    border:  1px solid transparent;
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 0px 10px 2px rgb(159,60,51);
+    margin-bottom: 20px;
+}
+.tabNotes h2{
+    text-align: center;
+    color : #9F3C33;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.tabNotes .table{
+    width: 80%;
+    border-top : 2px solid #9F3C33;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0px 0px 10px 2px rgb(159,60,51);
+    margin-bottom: 30px;
+}
+.tabNotes .table thead{
+    background-color: #9F3C33;
+    color: white;
+    text-align: center
+}
+.tabNotes .table tbody{
+    text-align: center;
+}

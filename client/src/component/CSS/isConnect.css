@@ -1,15 +1,16 @@
 .isConnect{
-    height: 40px;
+    height: 45px;
     width: 100%;
-    border-top: 2px solid #a93f36;
-    border-bottom: 2px solid #a93f36;
+    border-top: 5px solid #a93f36;
+    border-bottom: 0px solid #a93f36;
     margin-top: 1px;
+    box-shadow: 0px 0px 10px 2px rgb(90,34,29)
 }
 .isConnect ul{
     list-style: none;
     display: flex;
     width: 400px;
-    margin-left: 71%;
+    margin-left: 76%;
 }
 .isConnect ul > li {
     margin-right: 30px;

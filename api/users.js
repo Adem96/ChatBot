@@ -27,6 +27,7 @@ router.post("/register", (req, res) => {
             prenom : req.body.prenom,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
+            classe : req.body.classe,
             age : req.body.age,
             role : req.body.role,
             notes : req.body.notes
