@@ -27,8 +27,10 @@ router.post("/register", (req, res) => {
             prenom : req.body.prenom,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)),
+            classe : req.body.classe,
             age : req.body.age,
-            role : req.body.role
+            role : req.body.role,
+            notes : req.body.notes
         });
         user.save((err, user) => {
           if (err) res.json(err);
@@ -46,7 +48,7 @@ router.post("/register", (req, res) => {
       if(!user) res.json({error : "User n'existe pas"});
       else {
         if(bcrypt.compareSync(req.body.password,user.password)){
-          var token = jwt.sign({user},'secret',{expiresIn:3600})
+          var token = jwt.sign({user},'secret',{expiresIn:2})
           res.json(token)
         }else{
           res.status(401).json("Mot de passe incorrecte")

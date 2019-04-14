@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "brain": "^1.0.0",
+    "brain.js": "^1.6.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
@@ -19,10 +21,14 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.4.20",
     "morgan": "~1.9.0",
+<<<<<<< HEAD
     "navigator": "^1.0.1",
     "ngrok": "^3.1.1",
     "node-where": "^1.1.0",
     "request": "^2.88.0",
     "scrape-linkedin": "0.0.2"
+=======
+    "node-notifier": "^5.4.0"
+>>>>>>> c03eb6c04b328b0a92a27414e66f29173ee2a28b
   }
 }
