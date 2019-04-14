@@ -34,9 +34,10 @@ router.post("/specialites", function(req, res, next) {
   chatbotConnect(msg)
     .then(function(response) {
       switch (response[0].queryResult.intent.displayName) {
+  
         case "listSpecialites":
           var specilaite = new specialiteController();
-          console.log(response[0].queryResult.parameters.fields.Specialite.stringValue)
+          // console.log(response[0].queryResult.parameters.fields.Specialite.stringValue)
           specilaite
             .getSpecialite(
               response[0].queryResult.parameters.fields.Specialite.stringValue

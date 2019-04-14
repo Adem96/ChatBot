@@ -9,11 +9,12 @@ import SuggestionSpecialite from "./component/suggestionSpecialite"
 import Footer from "./component/footer";
 import Profile from "./component/profile";
 import Entraid from "./component/entraid"
+import Admission from "./component/admission"
 class App extends Component {
 
   componentWillMount(){
     //localStorage.removeItem("token")
-    console.log(localStorage.token)
+
   }
  
  
@@ -29,6 +30,7 @@ class App extends Component {
               <Route path="/suggestion" component={SuggestionSpecialite} exact />
               <Route path="/Profile" component={Profile} exact />
               <Route path="/Entraid" component={Entraid} exact />
+              <Route path="/Admission" component={Admission} exact />
           </Switch>
           <Footer />
         </BrowserRouter>

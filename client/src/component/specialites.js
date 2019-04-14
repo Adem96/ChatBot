@@ -22,11 +22,9 @@ class Specialites extends Component {
         isConnect: true
       });
     }
-    console.log(localStorage.getItem("token"))
   }
   apiSpecialite(e) {
     e.preventDefault();
-    console.log(this.state.message);
     if(localStorage.getItem("token") !== null){
       var id = jwt_decode(localStorage.token).user._id
     }
@@ -35,7 +33,6 @@ class Specialites extends Component {
       id : id
     };
     axios.post("http://localhost:4000/options/specialites", msg).then(res => {
-      console.log(res.data.intent);
       if (res.data.intent === "Specialite") {
         this.props.history.push({
           pathname: "/TousSpecialites",

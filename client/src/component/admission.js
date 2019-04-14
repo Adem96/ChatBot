@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Header from "../component/header";
 import IsConnect from "../component/isConnect";
-import "./CSS/entraid.css"
-class Entraid extends Component {
+import "./CSS/admission.css"
+class Admission extends Component {
   constructor() {
     super();
     this.state = {
@@ -33,10 +33,10 @@ class Entraid extends Component {
       <>
         <Header />
         <div hidden={!this.state.isConnect}>{this.isconnect()}</div>
-        <h1>Entraid page</h1>
+        <h1>Admission page</h1>
       </>
     );
   }
 }
 
-export default Entraid;
+export default Admission;

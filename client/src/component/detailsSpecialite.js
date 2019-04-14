@@ -2,11 +2,38 @@ import React, { Component } from "react";
 import "./CSS/detailsSpecialite.css";
 import arrow from "../images/arrow.png";
 import Header from "../component/header";
+import IsConnect from "../component/isConnect"
 class DetailsSpecialite extends Component {
+  constructor(){
+    super();
+    this.state = {
+      isconnect: false
+    };
+  }
+  componentWillMount() {
+    if (localStorage.token !== undefined) {
+      this.setState({
+        isConnect: true
+      });
+    }
+  }
+  isconnect() {
+    if (localStorage.token !== undefined) {
+      return <IsConnect disconnect={this.disconnect.bind(this)} />;
+    } else {
+      return <></>;
+    }
+  }
+  disconnect() {
+    this.props.history.push({
+      pathname: "/"
+    });
+  }
   render() {
     return (
       <>
         <Header />
+        <div hidden={!this.state.isConnect}>{this.isconnect()}</div>
         <div className="container-fluid containerDetailsS">
           <div className="row">
             <div className="col-lg-11 colDetailsS">
@@ -14,7 +41,7 @@ class DetailsSpecialite extends Component {
                 <span>
                   <img className="arrow" src={arrow} alt="arrow" />
                 </span>
-                {this.props.location.state.specialite.nom}
+                {this.props.location.state.specialite.nom.toUpperCase()}
               </p>
               <div className="row elementRow">
                 <div className="col-lg-11 elementCol">

@@ -7,7 +7,8 @@ class SuggestionSpecialite extends Component {
     super();
     this.state = {
       isConnect: false,
-      specialite: ""
+      specialite: "",
+      id: 0
     };
   }
   componentWillMount() {
@@ -101,8 +102,9 @@ class SuggestionSpecialite extends Component {
               </thead>
               <tbody>
                 {this.props.location.state.notes.map(note => {
+                 
                   return (
-                    
+              
                     <tr>
                       <td>{note.matiere}</td>
                       <td>{note.note}</td>

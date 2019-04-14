@@ -156,9 +156,11 @@ function specialites() {
   };
   this.getSpecialite = msg => {
     return new Promise(function(resolve, reject) {
-      Specialite.findOne({ nom: msg }, (err, specialite) => {
+      
+      Specialite.findOne({ nom: msg.toLowerCase() }, (err, specialite) => {
         if (err) reject(err);
-        else resolve(specialite);
+        else 
+          resolve(specialite);
       });
     });
   };
