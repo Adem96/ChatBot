@@ -19,6 +19,14 @@ router.get("/",(req,res)=>{
        })
       
 })
+router.get("/all",(req,res)=>{
+       var specialite = new specialiteController();
+       specialite.getAllSpecialites().then(response => {
+           res.json(response)
+       })
+    
+      
+})
 
 
 module.exports = router

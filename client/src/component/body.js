@@ -10,6 +10,8 @@ import password from "../images/password.png";
 import close from "../images/close.png";
 import axios from "axios";
 import Header from "../component/header";
+
+
 class Body extends Component {
   constructor() {
     super();
@@ -22,6 +24,11 @@ class Body extends Component {
   }
   componentWillMount() {
     Modal.setAppElement("body");
+  
+    
+  }
+  componentDidMount(){
+  
   }
   openModal() {
     this.setState({ modalIsOpen: true });

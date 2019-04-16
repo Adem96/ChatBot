@@ -1,0 +1,58 @@
+.quiz {
+  margin-top: 50px;
+}
+.quiz .tabQuiz {
+  margin-bottom: 50px;
+  background: white;
+  width: 80%;
+  margin: auto;
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 10px 2px rgb(159, 60, 51);
+  margin-top: 10px;
+  height: 600px;
+}
+.quiz .tabQuiz .chat {
+  width: 60%;
+  margin: auto;
+  box-shadow: 0px 0px 10px 2px rgb(159, 60, 51);
+  margin-top: 50px;
+}
+.quiz .tabQuiz .chat .chatHeader {
+  width: 100%;
+  height: 50px;
+  background-color: #9f3c33;
+}
+.quiz .tabQuiz .chat .chatBody {
+  height: 400px;
+  margin: auto;
+  border-bottom: 2px solid #9f3c33;
+  overflow-y: scroll;
+}
+.quiz .tabQuiz .chat .chatBody ul {
+  list-style: none;
+  border: 1px solid black;
+}
+
+.quiz .tabQuiz .chat .chatBody ul .liRight{
+    border: 1px solid red;
+    width: 280px;
+    margin-left: 150px;
+    margin-top: 20px;
+  }
+.quiz .tabQuiz .chat .chatBody ul .liLeft{
+    border: 1px solid blue;
+    width: 280px;
+    margin-left: -30px;
+    margin-top: 20px;
+  }
+.quiz .tabQuiz .chat .chatInput {
+  border-top: 2px solid #9f3c33;
+  height: 40px;
+}
+.quiz .tabQuiz .chat .chatInput input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 20px;
+  padding-bottom: 3px;
+}

@@ -20,6 +20,22 @@ var faqRouter = require('./api/faq')
 
 
 var app = express();
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
+io.on("connect", function(socket){
+  console.log("socket connect")
+  socket.emit("helloServer","Bonjour ceci est un test sur vos préférences afin de savoir quel spécialité vous convient le mieux")
+  var firstQuiz = {
+    math : "Mathematique",
+    developpement : "Developpemnt",
+    reseau : "reseaux"
+  }
+  socket.emit("firstQuiz",firstQuiz)
+})
+app.use(function(req, res, next){
+  res.io = io;
+  next();
+ });
 
 var db = require('./models/db')
 
@@ -71,4 +87,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = {app:app, server:server};
