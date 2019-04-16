@@ -1,17 +1,17 @@
 [
-    {"input": { "Langage de Modélisation (UML)": 1, "Conception par Objet et Programmation Java":1, "Génie logiciel & atelier GL": 1 , "Technologies Web 2.0":1}, "output": { "glMax": 1 }},
-    {"input": { "Langage de Modélisation (UML)": 0.7, "Conception par Objet et Programmation Java":0.7, "Génie logiciel & atelier GL": 0.7 , "Technologies Web 2.0":0.7}, "output": { "glMoy": 1 }},
-    {"input": { "Langage de Modélisation (UML)": 0.5, "Conception par Objet et Programmation Java":0.5, "Génie logiciel & atelier GL": 0.5 , "Technologies Web 2.0":0.5}, "output": { "glMin": 1 }},
-
-    {"input": { "Projet développement Web Java": 1, "Conception par Objet et Programmation Java":1, "Programmation des terminaux mobiles": 1 }, "output": { "simMax": 1 }},
-    {"input": { "Projet développement Web Java": 0.7, "Conception par Objet et Programmation Java":0.7, "Programmation des terminaux mobiles": 0.7 }, "output": { "simMoy": 1 }},
-    {"input": { "Projet développement Web Java": 0.5, "Conception par Objet et Programmation Java":0.5, "Programmation des terminaux mobiles": 0.5 }, "output": { "simMin": 1 }},
     
-    {"input": { "Sys. De Gestion de Bases de Données": 1, "Technologies Web 2.0":1, "Projet développement Web Java": 1 }, "output": { "twinMax": 1 }},
-    {"input": { "Sys. De Gestion de Bases de Données": 0.7, "Technologies Web 2.0":0.7, "Projet développement Web Java": 0.7 }, "output": { "twinMoy": 1 }},
-    {"input": { "Sys. De Gestion de Bases de Données": 0.5, "Technologies Web 2.0":0.5, "Projet développement Web Java": 0.5 }, "output": { "twinMin": 1 }},
+    {"input": { "Langage de Modélisation (UML)": 1, "Conception par Objet et Programmation Java":1, "Génie logiciel & atelier GL": 1 , "Technologies Web 2.0":1 , "Programmation des terminaux mobiles": 0 , "Projet développement Web Java": 0 , "Sys. De Gestion de Bases de Données": 0 , "Compléments de Mathématique":0, "Analyse de Fourrier": 0 ,"Analyse numérique": 0,"Probabilité & Statistique": 0}, "output": { "gl": 1 }},
+    {"input": { "Langage de Modélisation (UML)": 0, "Conception par Objet et Programmation Java":0, "Génie logiciel & atelier GL": 0 , "Technologies Web 2.0":1 , "Programmation des terminaux mobiles": 0 , "Projet développement Web Java": 1 , "Sys. De Gestion de Bases de Données": 1 , "Compléments de Mathématique":0, "Analyse de Fourrier": 0 ,"Analyse numérique": 0,"Probabilité & Statistique": 0}, "output": { "twin": 1 }},
+    {"input": { "Langage de Modélisation (UML)": 0, "Conception par Objet et Programmation Java":1, "Génie logiciel & atelier GL": 0 , "Technologies Web 2.0":0 , "Programmation des terminaux mobiles": 1 , "Projet développement Web Java": 1 , "Sys. De Gestion de Bases de Données": 0 , "Compléments de Mathématique":0, "Analyse de Fourrier": 0 ,"Analyse numérique": 0,"Probabilité & Statistique": 0}, "output": { "sim": 1 }},
+    {"input": { "Langage de Modélisation (UML)": 0, "Conception par Objet et Programmation Java":0, "Génie logiciel & atelier GL": 0 , "Technologies Web 2.0":0 , "Programmation des terminaux mobiles": 0 , "Projet développement Web Java": 0 , "Sys. De Gestion de Bases de Données": 0 , "Compléments de Mathématique":1, "Analyse de Fourrier": 1 ,"Analyse numérique": 1,"Probabilité & Statistique": 1}, "output": { "ds": 1 }},
+    
+    
+    {"input": { "Langage de Modélisation (UML)": 0, "Conception par Objet et Programmation Java":0, "Génie logiciel & atelier GL": 0 , "Technologies Web 2.0":1 , "Programmation des terminaux mobiles": 0 , "Projet développement Web Java": 1 , "Sys. De Gestion de Bases de Données": 1 , "Compléments de Mathématique":1, "Analyse de Fourrier": 1 ,"Analyse numérique": 1,"Probabilité & Statistique": 1}, "output": { "twinDs": 1 }},
 
-    {"input": { "Sys. De Gestion de Bases de Données": 1, "Compléments de Mathématique":1, "Analyse de Fourrier": 1 ,"Analyse numérique": 1,"Probabilité & Statistique": 1 , "Projet développement Web Java": 1 }, "output": { "dsMax": 1 }},
-    {"input": { "Sys. De Gestion de Bases de Données": 0.7, "Compléments de Mathématique":0.7, "Analyse de Fourrier": 0.7 ,"Analyse numérique": 0.7,"Probabilité & Statistique": 0.7 , "Projet développement Web Java": 0.7 }, "output": { "dsMoy": 1 }},
-    {"input": { "Sys. De Gestion de Bases de Données": 0.5, "Compléments de Mathématique":0.5, "Analyse de Fourrier": 0.5 ,"Analyse numérique": 0.5,"Probabilité & Statistique": 0.5 , "Projet développement Web Java": 0.5 }, "output": { "dsMin": 1 }}
-]
+    {"input": { "Langage de Modélisation (UML)": 0, "Conception par Objet et Programmation Java":1, "Génie logiciel & atelier GL": 0 , "Technologies Web 2.0":1 , "Programmation des terminaux mobiles": 1 , "Projet développement Web Java": 1 , "Sys. De Gestion de Bases de Données": 1 , "Compléments de Mathématique":0, "Analyse de Fourrier": 0 ,"Analyse numérique": 0,"Probabilité & Statistique": 0}, "output": { "twinSim": 1 }},
+    {"input": { "Langage de Modélisation (UML)": 1, "Conception par Objet et Programmation Java":1, "Génie logiciel & atelier GL": 1 , "Technologies Web 2.0":1 , "Programmation des terminaux mobiles": 1 , "Projet développement Web Java": 1 , "Sys. De Gestion de Bases de Données": 0 , "Compléments de Mathématique":0, "Analyse de Fourrier": 0 ,"Analyse numérique": 0,"Probabilité & Statistique": 0}, "output": { "simGl": 1 }},
+    {"input": { "Langage de Modélisation (UML)": 1, "Conception par Objet et Programmation Java":1, "Génie logiciel & atelier GL": 1 , "Technologies Web 2.0":1 , "Programmation des terminaux mobiles": 0 , "Projet développement Web Java": 1 , "Sys. De Gestion de Bases de Données": 1 , "Compléments de Mathématique":0, "Analyse de Fourrier": 0 ,"Analyse numérique": 0,"Probabilité & Statistique": 0}, "output": { "twinGl": 1 }},
+    {"input": { "Langage de Modélisation (UML)": 1, "Conception par Objet et Programmation Java":1, "Génie logiciel & atelier GL": 1 , "Technologies Web 2.0":1 , "Programmation des terminaux mobiles": 1 , "Projet développement Web Java": 1 , "Sys. De Gestion de Bases de Données": 1 , "Compléments de Mathématique":0, "Analyse de Fourrier": 0 ,"Analyse numérique": 0,"Probabilité & Statistique": 0}, "output": { "twinSimGl": 1 }}
+    
+
+   ]

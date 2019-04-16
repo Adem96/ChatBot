@@ -12,10 +12,15 @@ var specialites = require('./api/specialites.js')
 var moduleSpecialite = require('./api/modulesSpecialite.js')
 var admin = require('./api/admin')
 var covRouter = require('./api/covoiturage')
+
+var revRouter = require('./api/revision')
+var pfeRouter = require('./api/pfe')
+
 var faqRouter = require('./api/faq')
 
 
 var app = express();
+
 var db = require('./models/db')
 
 
@@ -30,15 +35,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/users', users);
 app.use('/admin',admin)
 app.use('/options',specialites);
 app.use('/modulesSpecialite',moduleSpecialite)
 app.use('/cov',covRouter)
-app.use('/faq',faqRouter)
+app.use('/revision',revRouter)
+app.use('/pfe',pfeRouter)
 
 
+const expressip = require('express-ip');
+app.use(expressip().getIpInfoMiddleware);
+app.get('/abc', function (req, res) {
+  const ipInfo = req.ipInfo;
+  console.log(req.ipInfo)
+  var message = `Hey, you are browsing from ${ipInfo.city}, ${ipInfo.country},`;
+  res.send(message);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
