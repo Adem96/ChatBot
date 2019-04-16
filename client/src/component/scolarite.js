@@ -16,7 +16,7 @@ class Scolarite extends Component {
     const msg = {
       msg : this.state.message
     }
-    axios.post("http://localhost:4000/options/specialites",msg).then(res => {
+    axios.post("http://localhost:4000/faq",msg).then(res => {
       console.log(res.data.intent)
       if(res.data.intent === "Specialite"){
         this.props.history.push({

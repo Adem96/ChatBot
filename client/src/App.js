@@ -9,6 +9,7 @@ import DetailsSpecialite from "./component/detailsSpecialite";
 
 import Footer from "./component/footer";
 import Profile from "./component/profile";
+import Scolarite from "./component/scolarite";
 
 class App extends Component {
 
@@ -26,6 +27,7 @@ class App extends Component {
           
               <Route path="/" component={Body} exact />
               <Route path="/Specialites" component={Specialites} exact />
+              <Route path="/Scolarite" component={Scolarite} exact />
               <Route path="/TousSpecialites" component={TousLesSpecialites} exact />
               <Route path="/DetailsSpecialite" component={DetailsSpecialite} exact />
               <Route path="/Profile" component={Profile} exact />
