@@ -37,7 +37,7 @@ class Header extends Component {
                 <li className="nav-item"><NavLink className="NavLink" to="/Specialites">Spécialités</NavLink> </li>
                 <li className="nav-item">Scolarité</li>
                 <li className="nav-item">Admission</li>
-                <li className="nav-item">Entraide</li>
+                <li className="nav-item">Entraide </li>
                 <li hidden={!this.state.isConnect} className="nav-item">Profile</li>
               </ul>
             </nav>

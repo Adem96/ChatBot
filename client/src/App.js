@@ -28,6 +28,7 @@ class App extends Component {
               <Route path="/DetailsSpecialite" component={DetailsSpecialite} exact />
               <Route path="/suggestion" component={SuggestionSpecialite} exact />
               <Route path="/Profile" component={Profile} exact />
+
           </Switch>
           <Footer />
         </BrowserRouter>
