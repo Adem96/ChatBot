@@ -10,8 +10,10 @@ class QuizPreferences extends Component {
       isconnect: false,
       endpoint : "http://127.0.0.1:4000",
       msgServer : "",
+      input : "",
       tab : [],
-      key : 0
+      key : 0,
+      index : 0
     };
   }
 
@@ -43,14 +45,19 @@ class QuizPreferences extends Component {
   }
   chat(e){
     if(e.key === 'Enter'){
-
+        this.setState({
+          input : e.target.value
+        })
         var socket = socketIOClient(this.state.endpoint);
-        socket.on("helloServer" , data => {
+        socket.emit("fromClient" ,this.refs.message.value)
+        socket.on("fromServer" , data => {
 
           this.setState({
             msgServer : data
           })
-          let tab = this.state.tab         
+
+          let tab = this.state.tab   
+          tab.push(this.state.input)    
           tab.push(this.state.msgServer)
           this.setState({
             tab : tab,
@@ -78,14 +85,15 @@ class QuizPreferences extends Component {
                     </div>
                     <div className="chatBody">
                        <ul>
-                       <li className="liRight">Bonjour ceci est un test sur vos préférences afin de savoir quel spécialité vous convient le mieux</li>
+                       <li className="liRight">Pour vous qu'est ce que vous preferez le plus ? math, developpement, reseau</li>
                          {this.state.tab.map((t,i) => {
                             if(i % 2 === 0 ){
-                              return(<li className="liLeft">left</li>)
+                              return(<li className="liLeft">{t}</li>)
                             }else {
-                              return(<li className="liRight">right</li>)
+                              return(<li className="liRight">{t}</li>)
                             }
                          })}
+                         
                        </ul> 
                     </div>
                     <div className="chatInput">

@@ -4,6 +4,7 @@ var User = require("../models/user.js")
 
 function specialites() {
 
+  
   this.calculScoreStudents = (users) =>{
     var tab =[]
     for (var key in users){
