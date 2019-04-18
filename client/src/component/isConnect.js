@@ -14,7 +14,8 @@ class IsConnect extends Component{
         var user = jwt_decode(localStorage.token).user   
         this.setState({
             nom : user.nom,
-            prenom : user.prenom
+            prenom : user.prenom,
+            classe : user.classe
         }) 
     }
     disconnect(){
@@ -25,7 +26,7 @@ class IsConnect extends Component{
         return(
             <div className="container-fluid isConnect">
                 <ul>
-                    <li>{this.state.nom} {this.state.prenom}</li>
+                    <li>{this.state.nom}{this.state.prenom} - {this.state.classe}</li>
                     <li onClick={this.disconnect.bind(this)}>Déconnexion</li>
                 </ul>
             </div>

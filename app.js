@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
-
+var chatbotConnect = require("./api/chatbotConnect.js");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var users = require('./api/users.js')
@@ -14,10 +14,59 @@ var admin = require('./api/admin')
 var covRouter = require('./api/covoiturage')
 var revRouter = require('./api/revision')
 var pfeRouter = require('./api/pfe')
+
+var revRouter = require('./api/revision')
+var pfeRouter = require('./api/pfe')
+
 var faqRouter = require('./api/faq')
 
 
 var app = express();
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
+io.on("connect", function(socket){
+  console.log("socket connect")
+  // socket.emit("helloServer","Bonjour ceci est un test sur vos préférences afin de savoir quel spécialité vous convient le mieux")
+  socket.on("fromClient" , function(msg) {
+    chatbotConnect(msg)
+    .then(function(response) {
+      console.log()
+      if(response[0].queryResult.intent.displayName === "firstQ"){
+        if(response[0].queryResult.parameters.fields.firstq.stringValue === "math"){
+            socket.emit("fromServer", "math") 
+        }
+        if(response[0].queryResult.parameters.fields.firstq.stringValue === "developpement"){
+          socket.emit("fromServer", "Si vous deviez choisir un métier lequel feriez vous ?")
+        }
+        if(response[0].queryResult.parameters.fields.firstq.stringValue === "reseaux"){
+          socket.emit("fromServer", "reseau") 
+        }
+      }
+      console.log(response[0].queryResult.intent.displayName)
+      if(response[0].queryResult.intent.displayName === "secondeQ"){
+        console.log(response[0].queryResult.parameters.fields.devOptions.stringValue)
+        if(response[0].queryResult.parameters.fields.devOptions.stringValue === "jeuVideo"){
+          console.log("jeu")
+            socket.emit("fromServer" , "jeuVide")
+        }
+        if(response[0].queryResult.parameters.fields.devOptions.stringValue === "developpeur"){
+          console.log("site")
+            socket.emit("fromServer" , "site web")
+        }
+        if(response[0].queryResult.parameters.fields.devOptions.stringValue === "Architect"){
+          console.log("architect")
+          socket.emit("fromServer" , "Architect SI")
+        }
+      }
+    })
+       
+  })
+  // socket.emit("firstQuiz","Pour vous qu'est ce que vous preferez le plus")
+})
+app.use(function(req, res, next){
+  res.io = io;
+  next();
+ });
 
 var db = require('./models/db')
 
@@ -70,4 +119,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = {app:app, server:server};

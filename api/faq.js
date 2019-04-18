@@ -58,8 +58,16 @@ router.post("/rechercheP", function (req, res, next) {
                         res.json({intent: "FAQ", response});
                         notifier.notify(response);
                     });
-                    break;
+                    var faq = new faqController();
+                    faq.getFaq(response[0].queryResult.parameters.fields.Foyer.stringValue).then(response => {
+                        res.json({intent: "FAQ", response});
+                        notifier.notify(response);
+                    });
 
+
+
+
+                    break;
 
                 default:
                     res.json({error: "je ne comprend pas ce que vous dites"});
