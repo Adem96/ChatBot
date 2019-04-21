@@ -12,6 +12,8 @@ var specialites = require('./api/specialites.js')
 var moduleSpecialite = require('./api/modulesSpecialite.js')
 var admin = require('./api/admin')
 var covRouter = require('./api/covoiturage')
+var revRouter = require('./api/revision')
+var pfeRouter = require('./api/pfe')
 
 var revRouter = require('./api/revision')
 var pfeRouter = require('./api/pfe')
@@ -110,6 +112,7 @@ app.use('/modulesSpecialite',moduleSpecialite)
 app.use('/cov',covRouter)
 app.use('/revision',revRouter)
 app.use('/pfe',pfeRouter)
+app.use('/faq',faqRouter)
 
 
 const expressip = require('express-ip');
