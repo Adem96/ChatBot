@@ -12,6 +12,7 @@ import Scolarite from "./component/scolarite";
 import Entraid from "./component/entraid"
 import Admission from "./component/admission"
 import QuizPreferences from "./component/quizPreferences"
+import ResultatPreferences from "./component/resultatPreferences"
 class App extends Component {
 
   componentWillMount(){
@@ -35,6 +36,7 @@ class App extends Component {
               <Route path="/Entraid" component={Entraid} exact />
               <Route path="/Admission" component={Admission} exact />
               <Route path="/QuizPreferences" component={QuizPreferences} exact />
+              <Route path="/ResultatPreferences" component={ResultatPreferences} exact />
           </Switch>
           <Footer />
         </BrowserRouter>

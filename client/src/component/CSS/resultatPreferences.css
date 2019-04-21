@@ -1,0 +1,42 @@
+.Preferences {
+  margin-top: 50px;
+
+}
+.Preferences .tabPreference {
+  margin-bottom: 50px;
+  background: white;
+  width: 80%;
+  margin: auto;
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 10px 2px rgb(159, 60, 51);
+  margin-top: 10px;
+  height: 710px;
+}
+
+.Preferences .tabPreference .title {
+  color: #9f3c33;
+  text-align: center;
+  margin-top: 20px;
+}
+.Preferences .tabPreference .resultat{
+    height: 100px;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    color: #9f3c33;
+    box-shadow: 0px 0px 10px 2px rgb(159, 60, 51);
+    margin-top: 50px;
+}
+.Preferences .tabPreference .resultat p{
+    padding-top: 12px;
+ 
+}
+.btnValider{
+    background-color: #9f3c33;
+    outline: none;
+  
+    color: white;
+    margin-left: 42%;
+    margin-bottom: 10px;
+}
