@@ -3,6 +3,7 @@ var router = express.Router();
 var ModulesSpecialite = require("../models/modulesSpecialite.js");
 var specialiteController = require("../controller/specialites.js");
 var chatbotConnect = require("../api/chatbotConnect.js");
+var ChoixSpecialite = require("../models/choixSpecialite")
 
 router.post("/",(req,res)=>{
     var moduleS = new ModulesSpecialite(req.body);
@@ -26,6 +27,15 @@ router.get("/all",(req,res)=>{
        })
     
       
+})
+
+router.post("/choixSpecialite", (req,res) => {
+    // testt
+    var choix  = new ChoixSpecialite(req.body)
+    choix.save((err,choix)=>{
+        if (err) res.json(err)
+        else res.json(choix)
+    })
 })
 
 

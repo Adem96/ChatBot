@@ -158,7 +158,6 @@ class QuizPreferences extends Component {
             </div>
             <NavLink className="NavLink" to="/ResultatPreferences"><div onClick={this.setPreference.bind(this)} hidden={!this.state.terminer} className="Suivant"><p>Suivant</p></div></NavLink>
           </div>
-          <button onClick={this.test.bind(this)}>test</button>
         </div>
       </>
     );

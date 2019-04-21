@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Header from "../component/header";
 import IsConnect from "../component/isConnect";
 import "./CSS/resultatPreferences.css";
-
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { NavLink } from "react-router-dom";
 class ResultatPreferences extends Component {
   constructor() {
     super();
@@ -67,18 +69,26 @@ class ResultatPreferences extends Component {
     }
   }
   test() {
-    console.log(this.state.tabChoix)
+    console.log(this.state.tabChoix);
   }
   validerChoix() {
-  
     let tabChoix = this.state.tabChoix;
     tabChoix.push(this.state.choix1);
     tabChoix.push(this.state.choix2);
     tabChoix.push(this.state.choix3);
     tabChoix.push(this.state.choix4);
     this.setState({
-        tabChoix : tabChoix
-    })
+      tabChoix: tabChoix
+    });
+    const obj = {
+      user: jwt_decode(localStorage.token).user,
+      listChoix: tabChoix
+    };
+    axios
+      .post("http://localhost:4000/modulesSpecialite/choixSpecialite", obj)
+      .then(data => {
+        console.log(data.data);
+      });
   }
   render() {
     return (
@@ -165,9 +175,14 @@ class ResultatPreferences extends Component {
                   </tr>
                 </tbody>
               </table>
-              <button className = "btnValider" onClick={this.validerChoix.bind(this)}>
-                Valider vos choix
-              </button>
+              <NavLink className="NavLink" to="/Profile">
+                <button
+                  className="btnValider"
+                  onClick={this.validerChoix.bind(this)}
+                >
+                  Valider vos choix
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
