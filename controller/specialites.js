@@ -1,4 +1,5 @@
 var Specialite = require("../models/specialite.js");
+var ChoixSpecialite = require("../models/choixSpecialite.js");
 var modulesSpecialite = require("../models/modulesSpecialite.js");
 var User = require("../models/user.js")
 
@@ -69,11 +70,12 @@ function specialites() {
 
       var scoreDs = (moyenneGenrale/60)*0.4 + manageNote*0.1 + enNote*0.1 
        + piNote*0.1 +  bddNote*0.2 + math1Note * 0.05 + math2Note * 0.05 + math3Note *  0.05 + probaNote * 0.05
-
-      var obj = {id:user._id , twin: scoreTwin , gl : scoreGl , sim : scoreSim , ds : scoreDs}
+     
+      
+      var obj = {id:user._id , scores : {twin: scoreTwin , gl : scoreGl , sim : scoreSim , ds : scoreDs} , choix : user.listChoix}
       tab.push(obj)
       
-    }
+    } 
     return tab
   } 
   this.CalculScore = (id) => {
@@ -173,6 +175,7 @@ function specialites() {
       });
     });
   };
+ 
   this.getModulesSpecialite = msg => {
     return new Promise(function(resolve, reject) {
       Specialite.findOne({ nom: msg }, (err, moduleS) => {

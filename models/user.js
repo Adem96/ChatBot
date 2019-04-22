@@ -11,7 +11,10 @@ var notes = new mongoose.Schema({
     "note" : {type : Number},
     "coef" : {type : Number}
 })
-
+var listChoix = new mongoose.Schema({
+    "specialite" : {type : String},
+    "nom" : {type : String}
+})
 var userSchema = new mongoose.Schema({
     nom : {type : String , trim : true},
     prenom : {type : String},
@@ -19,10 +22,11 @@ var userSchema = new mongoose.Schema({
     email : {type : String , required : true},
     classe : {type : String , default : null},
     age : {type : Number},
-    specialite : {type : specialite , default : null},
+    specialite : {type : String , default : null},
     notes : [notes],
     subjects:[subjects],
     reclamations:[reclamations],
+    listChoix : [String],
     role : {type : String , default : null}
 })
 
