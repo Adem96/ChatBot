@@ -13,6 +13,7 @@ import Entraid from "./component/entraid"
 import Admission from "./component/admission"
 import QuizPreferences from "./component/quizPreferences"
 import ResultatPreferences from "./component/resultatPreferences"
+import Admin from "./component/admin"
 class App extends Component {
 
   componentWillMount(){
@@ -38,6 +39,7 @@ class App extends Component {
               <Route path="/Admission" component={Admission} exact />
               <Route path="/QuizPreferences" component={QuizPreferences} exact />
               <Route path="/ResultatPreferences" component={ResultatPreferences} exact />
+              <Route path="/Admin" component={Admin} exact />
           </Switch>
           <Footer />
         </BrowserRouter>

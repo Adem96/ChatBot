@@ -3,12 +3,28 @@ import Header from "../component/header";
 import IsConnect from "../component/isConnect";
 import jwt_decode from "jwt-decode";
 import "./CSS//profile.css";
+import socketIOClient from "socket.io-client";
 class Profile extends Component {
-  componentWillMount() {}
+  constructor(){
+    super()
+    this.state = {
+      endpoint: "http://127.0.0.1:4000"
+    }
+  }
+  componentWillMount() {
+
+   
+  }
   disconnect() {
     this.props.history.push({
       pathname: "/"
     });
+  }
+  test(){
+    var socket = socketIOClient(this.state.endpoint);
+    socket.on("notification" , function(data) {
+      console.log(data)
+    })
   }
   render() {
     return (
@@ -64,6 +80,7 @@ class Profile extends Component {
             </table>
           </div>
         </div>
+        <button onClick={this.test.bind(this)}> test</button>
       </>
     );
   }

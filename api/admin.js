@@ -1,88 +1,83 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/user.js");
-var ChoixSpecialite = require("../models/choixSpecialite");
 var specialiteController = require("../controller/specialites.js");
 
+router.get("/studentChoix", (req, res) => {
+  User.find({ listChoix: { $exists: true, $ne: []} , specialite : {$eq : null}}, (err, users) => {
+    if (err) res.json(err);
+    else res.json(users);
+  });
+});
+
+router.get("/allStudents", (req, res) => {
+  User.find((err, users) => {
+    if (err) res.json(err);
+    else res.json(users);
+  });
+});
 router.post("/affectation", (req, res) => {
+  res.io.emit("notification" , "notification")
   var specilaite = new specialiteController();
+  var tabAffectation = [];
   User.find((err, users) => {
     if (err) res.json(err);
     else {
-          var tabAffectation = [{_id : "" , specialite : ""}]
-          var tabScores = specilaite.calculScoreStudents(users);
-          var compteurTwin = 0 ;
-          var compteurGl = 0 ;
-          var compteurSim = 0;
-          var compteurDs = 0;
-          for (var i in tabScores){
-            tabScores[i].choix.map((m,index) => {
-             
-              // switch(m){
-              //   case "Téchnologies du web et de l'internet" :
-              //   for(var k in tabAffectation){
-              //     if(tabAffectation[k]._id !== tabScores[i].id){
-              //       tabAffectation.push({_id : tabScores[i].id , specialite : "Téchnologies du web et de l'internet"})
-              //     }
-              //   }
-                  
-              //     // if(tabScores[i].scores.twin >= 10){
-              //     //   var valeur = tabScores[i].scores.twin
-                   
-              //     //   for (var j in tabScores){
-              //     //     if(tabScores[j].scores.twin > valeur && tabScores[j].choix[index] === "Téchnologies du web et de l'internet"){
-              //     //       compteurTwin ++ ;
-              //     //     }
-              //     //   }
-              //     //   console.log(compteur)
-              //     //   if(compteurTwin < 2){
-              //     //     tabAffectation.push({id:tabScores[i].id , specialite : tabScores[i].choix[0] , score : valeur})
-                    
-              //     //   }
-              //     // }
-              //   break;
-              //   case "Génie logiciel" :
-              //   for(var k in tabAffectation){
-              //     if(tabAffectation[k]._id !== tabScores[i].id){
-              //       tabAffectation.push({_id : tabScores[i].id , specialite : "Génie logiciel"})
-              //     }
-              //   }
-                  
-              //   break;
-              //   case "Systemes d'information mobile":
-              //   for(var k in tabAffectation){
-              //     if(tabAffectation[k]._id !== tabScores[i].id){
-              //       tabAffectation.push({_id : tabScores[i].id , specialite : "Systemes d'information mobile"})
-              //     }
-              //   }
-              //   break;
-              //   case "Data Science":
-              //   for(var k in tabAffectation){
-              //     if(tabAffectation[k]._id !== tabScores[i].id){
-              //       tabAffectation.push({_id : tabScores[i].id , specialite : "Data Science"})
-              //     }
-              //   }
-              //   break;
-              // }
-            })
-            // if(tabScores[i].choix[0] === "Téchnologies du web et de l'internet" && tabScores[i].scores.twin >= 10){
-            //   var valeur = tabScores[i].scores.twin
-            //   var compteur = 0 
-            //   for(var j in tabScores){
-            //       if(tabScores[j].scores.twin > valeur){
-            //           compteur ++;
-            //       }
-            //   }
-            //   if(compteur < 60){
-            //       tabAffectation.push({id:tabScores[i].id , specialite : tabScores[i].choix[0] , score : valeur})
-            //   }
-            // }
+      var tabScores = specilaite.calculScoreStudents(users);
+  
+      for (var i in tabScores) {
+        var obj = null;
+        tabScores[i].choix.map((m, index) => {
+          if (obj === null) {
+            switch (m) {
+              case "Téchnologies du web et de l'internet":
+                if (tabScores[i].scores.twin >= 10) {
+                  obj = { _id: tabScores[i].id, choix: m };
+                }
+                break;
+              case "Génie logiciel":
+                if (tabScores[i].scores.gl >= 10) {
+                  obj = { _id: tabScores[i].id, choix: m };
+                }
+                break;
+              case "Systemes d'information mobile":
+                if (tabScores[i].scores.sim >= 10) {
+                  obj = { _id: tabScores[i].id, choix: m };
+                }
+                break;
+              case "Data Science":
+                if (tabScores[i].scores.ds >= 10) {
+                  obj = { _id: tabScores[i].id, choix: m };
+                }
+                break;
+            }
+            tabAffectation.push(obj);
+         
           }
-   
-        }
-  res.json(tabScores)
-      })
+        });
+    
+      }
+    }
+
+    for (i in tabAffectation) {
+       
+      if (tabAffectation[i] !== null) {
+        var choix = tabAffectation[i].choix;
+        console.log(choix)
+        User.findOne({ _id: tabAffectation[i]._id }, (err, user) => { 
+          user.specialite = choix;
+          user.save()
+        });
+      }
+    }
+    res.json({msg : "Success"})
+
+  });
 });
+
+router.post("/sendNotification" , (req,res) => {
+
+})
 router.post("/ajouterNote", (req, res) => {
   var note = {
     matiere: req.body.matiere,

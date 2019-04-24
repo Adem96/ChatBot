@@ -22,12 +22,12 @@ var userSchema = new mongoose.Schema({
     email : {type : String , required : true},
     classe : {type : String , default : null},
     age : {type : Number},
-    specialite : {type : String , default : null},
+    specialite : {type : String },
     notes : [notes],
     subjects:[subjects],
     reclamations:[reclamations],
     listChoix : [String],
-    role : {type : String , default : null}
+    role : {type : String , default : null} 
 })
 
 module.exports = mongoose.model('User',userSchema)

@@ -25,6 +25,7 @@ var app = express();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
 io.on("connect", function(socket){
+ 
   socket.on("fromClient" , function(msg) {
     chatbotConnect(msg)
     .then(function(response) {
