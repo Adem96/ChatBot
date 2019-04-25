@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Header from "../component/header";
+import HeaderAdmin from "../component/headerAdmin";
 import IsConnect from "../component/isConnect";
 import axios from "axios";
-import socketIOClient from "socket.io-client";
+
 class Admin extends Component {
   constructor() {
     super();
@@ -48,10 +48,6 @@ class Admin extends Component {
   affectation(){
       axios.post("http://localhost:4000/admin/affectation").then(response => {
           if(response.data.msg === "Success"){
-            var socket = socketIOClient(this.state.endpoint);
-            socket.on("notification" , function(data) {
-              console.log(data)
-            })
             this.setState({
                 studentsChoix : []
             })
@@ -63,8 +59,7 @@ class Admin extends Component {
   render() {
     return (
       <>
-        <Header />
-
+        <HeaderAdmin />
         <div hidden={!this.state.isConnect}>{this.isconnect()}</div>
         <div className="profile">
           <div className="tabInfo">

@@ -24,6 +24,7 @@ var userSchema = new mongoose.Schema({
     age : {type : Number},
     specialite : {type : String },
     notes : [notes],
+    specialiteUpdate : {type : Boolean} ,
     subjects:[subjects],
     reclamations:[reclamations],
     listChoix : [String],

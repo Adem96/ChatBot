@@ -8,6 +8,7 @@ import DetailsSpecialite from "./component/detailsSpecialite";
 import SuggestionSpecialite from "./component/suggestionSpecialite"
 import Footer from "./component/footer";
 import Profile from "./component/profile";
+import ProfileAdmin from "./component/profileAdmin";
 import Scolarite from "./component/scolarite";
 import Entraid from "./component/entraid"
 import Admission from "./component/admission"
@@ -34,12 +35,14 @@ class App extends Component {
               <Route path="/DetailsSpecialite" component={DetailsSpecialite} exact />
               <Route path="/suggestion" component={SuggestionSpecialite} exact />
               <Route path="/Profile" component={Profile} exact />
+              <Route path="/Profile" component={Profile} exact />
 
               <Route path="/Entraid" component={Entraid} exact />
               <Route path="/Admission" component={Admission} exact />
               <Route path="/QuizPreferences" component={QuizPreferences} exact />
               <Route path="/ResultatPreferences" component={ResultatPreferences} exact />
-              <Route path="/Admin" component={Admin} exact />
+              <Route path="/Admin/affectation" component={Admin} exact />
+              <Route path="/Admin/profile" component={ProfileAdmin} exact />
           </Switch>
           <Footer />
         </BrowserRouter>

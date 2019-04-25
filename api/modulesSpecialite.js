@@ -29,6 +29,7 @@ router.get("/all", (req, res) => {
 router.post("/choixSpecialite", (req, res) => {
   User.findOne({ _id: req.body.user._id }, (err, user) => {
     user.listChoix = req.body.listChoix
+    user.specialiteUpdate = true
     user.save((err, u) => {
       if (err) res.json(err);
       else res.json(u);

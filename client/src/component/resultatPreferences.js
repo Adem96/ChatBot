@@ -27,6 +27,17 @@ class ResultatPreferences extends Component {
         preference: "Téchnologies du web et de l'internet"
       });
     }
+    if (localStorage.preference === "SIM") {
+      this.setState({
+        preference: "Systemes d'informations mobile"
+      });
+    }
+    if (localStorage.preference === "GL") {
+      this.setState({
+        preference: "Génie logiciel"
+      });
+    }
+ 
     if (localStorage.token !== undefined) {
       this.setState({
         isConnect: true

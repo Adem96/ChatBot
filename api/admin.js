@@ -4,7 +4,7 @@ var User = require("../models/user.js");
 var specialiteController = require("../controller/specialites.js");
 
 router.get("/studentChoix", (req, res) => {
-  User.find({ listChoix: { $exists: true, $ne: []} , specialite : {$eq : null}}, (err, users) => {
+  User.find({ listChoix: { $exists: true, $ne: []} , specialite : {$eq : null} }, (err, users) => {
     if (err) res.json(err);
     else res.json(users);
   });
@@ -66,6 +66,7 @@ router.post("/affectation", (req, res) => {
         console.log(choix)
         User.findOne({ _id: tabAffectation[i]._id }, (err, user) => { 
           user.specialite = choix;
+          user.specialiteUpdate = false
           user.save()
         });
       }

@@ -71,3 +71,9 @@
 .tabNotes .table tbody{
     text-align: center;
 }
+#specialite {
+    background-color: rgb(49, 160, 49);
+    color: #9F3C33;
+    font-weight: bold;
+    font-size: 20px;
+}

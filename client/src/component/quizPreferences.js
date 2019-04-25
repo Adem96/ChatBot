@@ -51,13 +51,14 @@ class QuizPreferences extends Component {
       socket.emit("fromClient", this.refs.message.value);
    
       socket.on("fromServer", data => {
-        if (data.metiers === undefined) {
+        console.log(data)
+        if (data.metiers === undefined && data.error === undefined) {
           this.setState({
             msgServer: data.msg,
             preference2 : data.preference,
             terminer : true
           });
-        } else {
+        } else if(data.metiers !== undefined){
           this.setState({
             msgServer:
               data.msg +
@@ -69,6 +70,10 @@ class QuizPreferences extends Component {
               data.metiers[2],
               preference1 : data.preference
           });
+        } else if(data.error !== undefined && data.metiers === undefined){
+          this.setState({
+            msgServer : data.error
+          })
         }
 
         let tab = this.state.tab;
@@ -84,7 +89,7 @@ class QuizPreferences extends Component {
   }
 
   setPreference() {
-    if(this.state.preference1 === "Developpement"){
+    if(this.state.preference1 === "Developpement"){ 
       if(this.state.preference2 === "jeuVideo"){
           const resultat = "SIM"
           this.setState({

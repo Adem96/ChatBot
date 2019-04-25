@@ -29,6 +29,7 @@ io.on("connect", function(socket){
   socket.on("fromClient" , function(msg) {
     chatbotConnect(msg)
     .then(function(response) {
+   
       if(response[0].queryResult.intent.displayName === "firstQ"){
         if(response[0].queryResult.parameters.fields.firstq.stringValue === "math"){
           const obj = {
@@ -37,7 +38,7 @@ io.on("connect", function(socket){
             preference : "Math"
           }
           socket.emit("fromServer", obj) 
-        }
+        } else 
         if(response[0].queryResult.parameters.fields.firstq.stringValue === "developpement"){
           const obj = {
             msg : "Si vous deviez choisir un métier lequel feriez vous ?",
@@ -46,7 +47,7 @@ io.on("connect", function(socket){
           }
           socket.emit("fromServer", obj)
           
-        }
+        }else
         if(response[0].queryResult.parameters.fields.firstq.stringValue === "reseaux"){ 
           const obj = {
             msg : "Si vous deviez choisir un métier lequel feriez vous ?",
@@ -55,9 +56,15 @@ io.on("connect", function(socket){
           }
           socket.emit("fromServer", obj) 
         }
+        else {
+          const obj = {
+            error : "que preferiez vous ?"
+          }
+          socket.emit("fromServer" , obj)
+        }
       }
 
-      if(response[0].queryResult.intent.displayName === "secondeQ"){
+      else if(response[0].queryResult.intent.displayName === "secondeQ"){
         if(response[0].queryResult.parameters.fields.devOptions.stringValue === "jeuVideo"){
           const obj = {
             msg : "Le test est terminé clicker sur suivant pour avoir votre résultat",
@@ -65,25 +72,36 @@ io.on("connect", function(socket){
           }
             socket.emit("fromServer" , obj)
         }
-        if(response[0].queryResult.parameters.fields.devOptions.stringValue === "developpeur"){
+        else if(response[0].queryResult.parameters.fields.devOptions.stringValue === "developpeur"){
           const obj = {
             msg : "Le test est terminé clicker sur suivant pour avoir votre résultat",
             preference : "siteWeb"
           }
             socket.emit("fromServer" , obj)
         }
-        if(response[0].queryResult.parameters.fields.devOptions.stringValue === "Architect"){
+        else if(response[0].queryResult.parameters.fields.devOptions.stringValue === "Architect"){
           const obj = {
             msg : "Le test est terminé clicker sur suivant pour avoir votre résultat",
             preference : "Architect SI"
           }
           socket.emit("fromServer" , obj)
         }
+        else {
+          const obj = {
+            error : "quel metier feriez vous ?"
+          }
+          socket.emit("fromServer" , obj)
+        }
+      }
+      else{
+        const obj = {
+          error : "je ne comprend pas ce que vous dite veuillez répondre a cette question"
+        }
+        socket.emit("fromServer" , obj)
       }
     })
        
   })
-  // socket.emit("firstQuiz","Pour vous qu'est ce que vous preferez le plus")
 })
 app.use(function(req, res, next){
   res.io = io;
