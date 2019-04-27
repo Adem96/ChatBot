@@ -11,10 +11,7 @@ var notes = new mongoose.Schema({
     "note" : {type : Number},
     "coef" : {type : Number}
 })
-var listChoix = new mongoose.Schema({
-    "specialite" : {type : String},
-    "nom" : {type : String}
-})
+
 var userSchema = new mongoose.Schema({
     nom : {type : String , trim : true},
     prenom : {type : String},
@@ -24,7 +21,7 @@ var userSchema = new mongoose.Schema({
     age : {type : Number},
     specialite : {type : String },
     notes : [notes],
-    specialiteUpdate : {type : Boolean} ,
+    specialiteUpdate : {type : Boolean , default : false} ,
     subjects:[subjects],
     reclamations:[reclamations],
     listChoix : [String],

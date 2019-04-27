@@ -15,11 +15,15 @@ import Admission from "./component/admission"
 import QuizPreferences from "./component/quizPreferences"
 import ResultatPreferences from "./component/resultatPreferences"
 import Admin from "./component/admin"
+import socketIOClient from "socket.io-client";
 class App extends Component {
 
   componentWillMount(){
     //localStorage.removeItem("token")
-
+    var socket = socketIOClient("http://127.0.0.1:4000");
+    socket.on("notification" , data => {
+      console.log(data)
+    })
   }
  
  

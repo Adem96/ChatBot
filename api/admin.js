@@ -4,30 +4,35 @@ var User = require("../models/user.js");
 var specialiteController = require("../controller/specialites.js");
 
 router.get("/studentChoix", (req, res) => {
-  User.find({ listChoix: { $exists: true, $ne: []} , specialite : {$eq : null} }, (err, users) => {
-    if (err) res.json(err);
-    else res.json(users);
-  });
+  User.find(
+    { listChoix: { $exists: true, $ne: [] }, specialiteUpdate : {$eq : true} },
+    (err, users) => {
+      if (err) res.json(err);
+      else res.json(users);
+    }
+  );
 });
 
-router.get("/allStudents", (req, res) => {
+router.get("/allStudents",  (req, res) => {
   User.find((err, users) => {
     if (err) res.json(err);
     else res.json(users);
   });
+ 
 });
-router.post("/affectation", (req, res) => {
-  res.io.emit("notification" , "notification")
+router.post("/affectation", (req, res , next) => {
+ 
+ 
   var specilaite = new specialiteController();
   var tabAffectation = [];
-  User.find((err, users) => {
+  User.find(async(err, users) => {
     if (err) res.json(err);
     else {
       var tabScores = specilaite.calculScoreStudents(users);
-  
-      for (var i in tabScores) {
+      
+      for (var i in tabScores){
         var obj = null;
-        tabScores[i].choix.map((m, index) => {
+        tabScores[i].choix.map(m => {
           if (obj === null) {
             switch (m) {
               case "Téchnologies du web et de l'internet":
@@ -51,34 +56,30 @@ router.post("/affectation", (req, res) => {
                 }
                 break;
             }
-            tabAffectation.push(obj);
-         
           }
         });
-    
+        tabAffectation.push(obj)
       }
     }
 
-    for (i in tabAffectation) {
-       
-      if (tabAffectation[i] !== null) {
-        var choix = tabAffectation[i].choix;
-        console.log(choix)
-        User.findOne({ _id: tabAffectation[i]._id }, (err, user) => { 
-          user.specialite = choix;
-          user.specialiteUpdate = false
-          user.save()
-        });
+    for (var i in tabAffectation) {
+      
+      if(tabAffectation[i] !== null){
+        var id = tabAffectation[i]._id
+        var choix = tabAffectation[i].choix
+        let user = await User.findOne({_id : id})
+        user.specialite = choix
+        user.specialiteUpdate = false
+        res.io.emit("notification" , user)
+        user.save()
       }
-    }
-    res.json({msg : "Success"})
 
+    }
+    res.json({ msg: "Success" });
   });
 });
 
-router.post("/sendNotification" , (req,res) => {
-
-})
+router.post("/sendNotification", (req, res) => {});
 router.post("/ajouterNote", (req, res) => {
   var note = {
     matiere: req.body.matiere,

@@ -102,6 +102,7 @@ io.on("connect", function(socket){
     })
        
   })
+
 })
 app.use(function(req, res, next){
   res.io = io;
