@@ -19,6 +19,7 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
+    "mdbreact": "^4.13.0",
     "mongoose": "^5.4.20",
     "morgan": "~1.9.0",
     "navigator": "^1.0.1",

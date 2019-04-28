@@ -1,49 +1,60 @@
 var Faq = require("../models/faq.js");
 var subject = require("../models/subject")
 var Calendar = require("../models/AnnualCalendar")
-
+var Reclamation = require("../models/reclamation")
 
 
 function faqs() {
 
 
     this.getFaq = msg => {
-        return new Promise(function(resolve, reject) {
-            Faq.findOne({ titre: msg }, (err, faq) => {
+        return new Promise(function (resolve, reject) {
+            Faq.findOne({titre: msg}, (err, faq) => {
                 if (err) reject(err);
                 else resolve(faq);
             });
         });
     };
-    this.getAllFaq = () =>{
-        return new Promise(function(resolve,reject){
-            Faq.find((err,faqs)=>{
-                if(err) reject(err)
+    this.getAllFaq = () => {
+        return new Promise(function (resolve, reject) {
+            Faq.find((err, faqs) => {
+                if (err) reject(err)
                 else resolve(faqs)
             })
         })
     }
 
-    this.getAllNotes = () =>{
-        return new Promise(function(resolve,reject){
-            subject.find((err,subs)=>{
-                if(err) reject(err)
+    this.getAllNotes = () => {
+        return new Promise(function (resolve, reject) {
+            subject.find((err, subs) => {
+                if (err) reject(err)
                 else resolve(subs)
             })
         })
     }
 
-    this.getCalendar = () =>{
-        return new Promise(function(resolve,reject){
-            Calendar.find((err,cal)=>{
-                if(err) reject(err)
+    this.getAllReclamations = () => {
+        return new Promise(function (resolve, reject) {
+
+            Reclamation.find((err, recs) => {
+                if (err) reject(err)
+                else resolve(recs)
+            })
+
+        })
+
+    }
+
+    this.getCalendar = () => {
+        return new Promise(function (resolve, reject) {
+            Calendar.find((err, cal) => {
+                if (err) reject(err)
                 else resolve(cal)
             })
         })
     }
 
 
-
-
 }
+
 module.exports = faqs;

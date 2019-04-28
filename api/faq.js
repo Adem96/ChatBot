@@ -6,6 +6,8 @@ var Calendar = require("../models/AnnualCalendar.js");
 var faqController = require("../controller/faq.js");
 var Subject = require("../models/subject.js");
 const notifier = require('node-notifier');
+var User = require("../models/user");
+
 
 var chatbotConnect = require("../api/chatbotConnect.js");
 
@@ -37,12 +39,28 @@ router.post("/calendarAdd", (req, res) => {
 
 
 router.post("/reclamation", (req, res) => {
-    var rec = new Reclamation(req.body);
+    var reclamations = {
+
+        contenu: req.body.contenu,
+        matiere: req.body.matiere,
+
+    }
+
+    var rec = new Reclamation(reclamations);
     rec.save((err, f) => {
         if (err) res.json(err);
         else res.json(f);
         notifier.notify('Votre réclamation a été bien déposée et ESPRIT assurera le suivi')
     });
+    console.log(reclamations)
+    var id = req.body.id
+    console.log(id);
+    User.findOneAndUpdate(
+        {_id: id},
+        {$push: {reclamations: reclamations}},
+    );
+
+
 });
 
 
@@ -63,8 +81,6 @@ router.post("/rechercheP", function (req, res, next) {
                         res.json({intent: "FAQ", response});
                         notifier.notify(response);
                     });
-
-
 
 
                     break;
@@ -148,7 +164,6 @@ router.post("/notes", function (req, res, next) {
 });
 
 
-
 router.post("/calendrier", function (req, res, next) {
     var msg = req.body.msg;
     chatbotConnect(msg)
@@ -170,6 +185,18 @@ router.post("/calendrier", function (req, res, next) {
             res.json(err);
         });
 });
+
+
+router.get("/reclamations", function (req, res, next) {
+
+                    var faq = new faqController();
+                    faq.getAllReclamations().then(response => {
+                        res.json(response);
+                    });
+
+});
+
+
 
 
 
