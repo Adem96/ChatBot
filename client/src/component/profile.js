@@ -3,19 +3,44 @@ import Header from "../component/header";
 import IsConnect from "../component/isConnect";
 import jwt_decode from "jwt-decode";
 import "./CSS//profile.css";
+
 class Profile extends Component {
-  componentWillMount() {}
+  constructor() {
+    super();
+    this.state = {
+      endpoint: "http://127.0.0.1:4000",
+      specialiteHidden: true,
+      specialite : "",
+      notificationBool : false
+
+    };
+  }
+  componentWillMount() {
+ 
+    if (jwt_decode(localStorage.token).user.specialite !== null) {
+      this.setState({
+        specialiteHidden: false
+      });
+    }
+  }
   disconnect() {
     this.props.history.push({
       pathname: "/"
     });
   }
+  test() {}
+  notifSpecialite(specialite){
+    this.setState({
+      specialite : specialite,
+      notificationBool : true
+    })
+  }
   render() {
     return (
       <>
         <Header />
-        <IsConnect disconnect={this.disconnect.bind(this)} />
-
+        <IsConnect disconnect={this.disconnect.bind(this)} specialite={this.notifSpecialite.bind(this)}/>
+        <p className="alert alert-success" role="alert" hidden = {!this.state.notificationBool}>Vous etes affecter vers la spécialité {this.state.specialite}</p>
         <div className="profile">
           <div className="tabInfo">
             <table className="table table-condensed">
@@ -36,6 +61,12 @@ class Profile extends Component {
                 </tr>
                 <tr>
                   <td>Classe : {jwt_decode(localStorage.token).user.classe}</td>
+                </tr>
+                <tr id="specialite" hidden={this.state.specialiteHidden}>
+                  <td>
+                    Specialite :{" "}
+                    {jwt_decode(localStorage.token).user.specialite}
+                  </td>
                 </tr>
               </tbody>
             </table>

@@ -22,11 +22,12 @@
     "mdbreact": "^4.13.0",
     "mongoose": "^5.4.20",
     "morgan": "~1.9.0",
-    "navigator": "^1.0.1",
     "ngrok": "^3.1.1",
     "node-notifier": "^5.4.0",
     "node-where": "^1.1.0",
+    "scrape-linkedin": "0.0.2",
+    "navigator": "^1.0.1",
     "request": "^2.88.0",
-    "scrape-linkedin": "0.0.2"
+    "socket.io": "^2.2.0"
   }
 }

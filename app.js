@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
-
+var chatbotConnect = require("./api/chatbotConnect.js");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var users = require('./api/users.js')
@@ -12,6 +12,8 @@ var specialites = require('./api/specialites.js')
 var moduleSpecialite = require('./api/modulesSpecialite.js')
 var admin = require('./api/admin')
 var covRouter = require('./api/covoiturage')
+var revRouter = require('./api/revision')
+var pfeRouter = require('./api/pfe')
 
 var revRouter = require('./api/revision')
 var pfeRouter = require('./api/pfe')
@@ -20,6 +22,92 @@ var faqRouter = require('./api/faq')
 
 
 var app = express();
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
+io.on("connect", function(socket){
+ 
+  socket.on("fromClient" , function(msg) {
+    chatbotConnect(msg)
+    .then(function(response) {
+   
+      if(response[0].queryResult.intent.displayName === "firstQ"){
+        if(response[0].queryResult.parameters.fields.firstq.stringValue === "math"){
+          const obj = {
+            msg : "Si vous deviez choisir un métier lequel feriez vous ?",
+            metiers : ['Data Scientist','Data Analyste','Big data architecte'],
+            preference : "Math"
+          }
+          socket.emit("fromServer", obj) 
+        } else 
+        if(response[0].queryResult.parameters.fields.firstq.stringValue === "developpement"){
+          const obj = {
+            msg : "Si vous deviez choisir un métier lequel feriez vous ?",
+            metiers : ['Concepteur jeu video','developpeur site web','Architect SI'],
+            preference : "Developpement"
+          }
+          socket.emit("fromServer", obj)
+          
+        }else
+        if(response[0].queryResult.parameters.fields.firstq.stringValue === "reseaux"){ 
+          const obj = {
+            msg : "Si vous deviez choisir un métier lequel feriez vous ?",
+            metiers : [' Administrateur systèmes et réseaux','Intégrateur de services Cloud','Administrateur sécurité'],
+            preference : "Reseaux"
+          }
+          socket.emit("fromServer", obj) 
+        }
+        else {
+          const obj = {
+            error : "que preferiez vous ?"
+          }
+          socket.emit("fromServer" , obj)
+        }
+      }
+
+      else if(response[0].queryResult.intent.displayName === "secondeQ"){
+        if(response[0].queryResult.parameters.fields.devOptions.stringValue === "jeuVideo"){
+          const obj = {
+            msg : "Le test est terminé clicker sur suivant pour avoir votre résultat",
+            preference : "jeuVideo"
+          }
+            socket.emit("fromServer" , obj)
+        }
+        else if(response[0].queryResult.parameters.fields.devOptions.stringValue === "developpeur"){
+          const obj = {
+            msg : "Le test est terminé clicker sur suivant pour avoir votre résultat",
+            preference : "siteWeb"
+          }
+            socket.emit("fromServer" , obj)
+        }
+        else if(response[0].queryResult.parameters.fields.devOptions.stringValue === "Architect"){
+          const obj = {
+            msg : "Le test est terminé clicker sur suivant pour avoir votre résultat",
+            preference : "Architect SI"
+          }
+          socket.emit("fromServer" , obj)
+        }
+        else {
+          const obj = {
+            error : "quel metier feriez vous ?"
+          }
+          socket.emit("fromServer" , obj)
+        }
+      }
+      else{
+        const obj = {
+          error : "je ne comprend pas ce que vous dite veuillez répondre a cette question"
+        }
+        socket.emit("fromServer" , obj)
+      }
+    })
+       
+  })
+
+})
+app.use(function(req, res, next){
+  res.io = io;
+  next();
+ });
 
 var db = require('./models/db')
 
@@ -45,6 +133,7 @@ app.use('/modulesSpecialite',moduleSpecialite)
 app.use('/cov',covRouter)
 app.use('/revision',revRouter)
 app.use('/pfe',pfeRouter)
+app.use('/faq',faqRouter)
 
 
 const expressip = require('express-ip');
@@ -72,4 +161,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = {app:app, server:server};

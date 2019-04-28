@@ -1,9 +1,11 @@
 var Specialite = require("../models/specialite.js");
+var ChoixSpecialite = require("../models/choixSpecialite.js");
 var modulesSpecialite = require("../models/modulesSpecialite.js");
 var User = require("../models/user.js")
 
 function specialites() {
 
+  
   this.calculScoreStudents = (users) =>{
     var tab =[]
     for (var key in users){
@@ -27,28 +29,28 @@ function specialites() {
           var enNote = user.notes[key].note
         }
         if(user.notes[key].matiere === "Analyse et Décisions Financières"){
-          var manageNote = user.notes[key].coef
+          var manageNote = user.notes[key].note
         }
         if(user.notes[key].matiere === "Projet développement Web Java"){
-          var piNote = user.notes[key].coef
+          var piNote = user.notes[key].note
         }
         if(user.notes[key].matiere === "Programmation des terminaux mobiles"){
-          var mobileNote = user.notes[key].coef
+          var mobileNote = user.notes[key].note
         }
         if(user.notes[key].matiere === "Compléments de Mathématique"){
-          var math1Note = user.notes[key].coef
+          var math1Note = user.notes[key].note
         }
         if(user.notes[key].matiere === "Analyse de Fourrier"){
-          var math2Note = user.notes[key].coef
+          var math2Note = user.notes[key].note
         }
         if(user.notes[key].matiere === "Analyse numérique"){
-          var math3Note = user.notes[key].coef
+          var math3Note = user.notes[key].note
         }
         if(user.notes[key].matiere === "Probabilité & Statistique"){
-          var probaNote = user.notes[key].coef
+          var probaNote = user.notes[key].note
         }
         if(user.notes[key].matiere === "Sys. De Gestion de Bases de Données"){
-          var bddNote = user.notes[key].coef
+          var bddNote = user.notes[key].note
         }
         score = (user.notes[key].note) * (user.notes[key].coef)
         if (!isNaN(score)) {
@@ -68,11 +70,12 @@ function specialites() {
 
       var scoreDs = (moyenneGenrale/60)*0.4 + manageNote*0.1 + enNote*0.1 
        + piNote*0.1 +  bddNote*0.2 + math1Note * 0.05 + math2Note * 0.05 + math3Note *  0.05 + probaNote * 0.05
-
-      var obj = {id:user._id , twin: scoreTwin , gl : scoreGl , sim : scoreSim , ds : scoreDs}
+     
+      
+      var obj = {id:user._id , scores : {twin: scoreTwin , gl : scoreGl , sim : scoreSim , ds : scoreDs , mg : moyenneGenrale/60} , choix : user.listChoix}
       tab.push(obj)
       
-    }
+    } 
     return tab
   } 
   this.CalculScore = (id) => {
@@ -172,6 +175,7 @@ function specialites() {
       });
     });
   };
+ 
   this.getModulesSpecialite = msg => {
     return new Promise(function(resolve, reject) {
       Specialite.findOne({ nom: msg }, (err, moduleS) => {

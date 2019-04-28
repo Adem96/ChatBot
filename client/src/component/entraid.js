@@ -3,12 +3,15 @@ import Header from "../component/header";
 import IsConnect from "../component/isConnect";
 import "./CSS/entraid.css"
 class Entraid extends Component {
+
   constructor() {
     super();
     this.state = {
       isconnect: false
     };
   }
+
+
   componentWillMount(){
     if (localStorage.token !== undefined) {
         this.setState({
@@ -28,6 +31,7 @@ class Entraid extends Component {
       pathname: "/"
     });
   }
+  
   render() {
     return (
       <>

@@ -53,6 +53,7 @@
     color : #9F3C33;
     margin-top: 30px;
     margin-bottom: 50px;
+    font-size: 25px;
 }
 .tabNotes .table{
     width: 80%;
@@ -69,4 +70,10 @@
 }
 .tabNotes .table tbody{
     text-align: center;
+}
+#specialite {
+    background-color: rgb(49, 160, 49);
+    color: #9F3C33;
+    font-weight: bold;
+    font-size: 20px;
 }

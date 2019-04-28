@@ -9,29 +9,35 @@
 .isConnect ul{
     list-style: none;
     display: flex;
-    width: 400px;
-    margin-left: 74%;
+    width: 450px;
+    margin-left: 70%;
 }
 .isConnect ul > li {
     margin-right: 30px;
 }
-.isConnect ul li:nth-child(1){
+.isConnect ul li:nth-child(2){
     color: #a93f36 ;
     font-weight: 700;
     font-size: 20px;
     margin-top: 2px;
 }
-.isConnect ul li:nth-child(2){
+.isConnect ul li:nth-child(3){
     color: #a93f36 ;
     font-weight: 400;
     font-size: 20px;
     border-bottom: 1px solid #a93f36;
     cursor: pointer;
 }
-.isConnect ul li:nth-child(2):hover{
+.isConnect ul li:nth-child(3):hover{
     color: #a93f36 ;
     font-weight: 700;
     font-size: 20px;
     border-bottom: 2px solid #a93f36;
+    cursor: pointer;
+}
+.notification img{
+    width: 25px;
+    height: 25px;
+    margin-top: 6px;
     cursor: pointer;
 }

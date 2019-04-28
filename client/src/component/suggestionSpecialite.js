@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./CSS/suggestionSpecialite.css";
 import Header from "../component/header";
 import IsConnect from "../component/isConnect";
+import { NavLink } from "react-router-dom";
 class SuggestionSpecialite extends Component {
   constructor() {
     super();
@@ -92,7 +93,9 @@ class SuggestionSpecialite extends Component {
             </table>
           </div>
           <div className="tabNotesS">
-            <h2>Vos notes des modules de la spécialité {this.state.specialite}</h2>
+            <h2>
+              Vos notes des modules de la spécialité {this.state.specialite}
+            </h2>
             <table className="table table-condensed">
               <thead>
                 <tr>
@@ -102,9 +105,7 @@ class SuggestionSpecialite extends Component {
               </thead>
               <tbody>
                 {this.props.location.state.notes.map(note => {
-                 
                   return (
-              
                     <tr>
                       <td>{note.matiere}</td>
                       <td>{note.note}</td>
@@ -114,6 +115,9 @@ class SuggestionSpecialite extends Component {
               </tbody>
             </table>
           </div>
+          <NavLink className="NavLink" to="/QuizPreferences">
+            <p className="quiz">Continuer pour le Quiz des préférences</p>
+          </NavLink>
         </div>
       </>
     );

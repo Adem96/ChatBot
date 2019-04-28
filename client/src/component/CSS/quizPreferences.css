@@ -1,0 +1,85 @@
+.quiz {
+  margin-top: 50px;
+}
+.quiz .tabQuiz {
+  margin-bottom: 50px;
+  background: white;
+  width: 80%;
+  margin: auto;
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 10px 2px rgb(159, 60, 51);
+  margin-top: 10px;
+  height: 710px;
+}
+.quiz .tabQuiz .chat {
+  width: 50%;
+  margin: auto;
+  box-shadow: 0px 0px 10px 2px rgb(159, 60, 51);
+  margin-top: 50px;
+}
+.quiz .tabQuiz .chat .chatHeader {
+  width: 100%;
+  height: 50px;
+  background-color: #9f3c33;
+}
+.quiz .tabQuiz .chat .chatBody {
+  height: 400px;
+  margin: auto;
+  border-bottom: 2px solid #9f3c33;
+  overflow-y: scroll;
+}
+.quiz .tabQuiz .chat .chatBody ul {
+  list-style: none;
+
+}
+
+.quiz .tabQuiz .chat .chatBody ul .liRight{
+  
+    width: 280px;
+    margin-left: 190px;
+    margin-top: 20px;
+    text-align: justify;
+    padding: 8px;
+    border-radius: 30px;
+    background-color: rgb(104, 103, 103);
+    color: white;
+  }
+.quiz .tabQuiz .chat .chatBody ul .liLeft{
+  
+    width: 280px;
+    margin-left: -30px;
+    margin-top: 20px;
+    text-align: justify;
+    padding: 8px;
+    border-radius: 30px;
+    background-color : #9f3c33;
+    color: white;
+  }
+.quiz .tabQuiz .chat .chatInput {
+  border-top: 2px solid #9f3c33;
+  height: 40px;
+}
+.quiz .tabQuiz .chat .chatInput input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 20px;
+  padding-bottom: 3px;
+}
+.quiz .tabQuiz .title {
+  color: #9f3c33;
+  text-align: center;
+  margin-top: 20px;
+}
+.Suivant{
+  text-align: center ; 
+  padding-top: 20px;
+  margin-top: 5px;
+  font-size: 20px;
+  color: #9f3c33;
+  font-weight: 500;
+  cursor: pointer;
+}
+.Suivant p:hover{
+  font-weight: bold
+}

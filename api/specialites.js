@@ -7,6 +7,7 @@ var chatbotConnect = require("../api/chatbotConnect.js");
 var brain = require("brain.js");
 var input = require("../notes.json");
 
+
 router.post("/", (req, res) => {
   var specialite = new Specialite(req.body);
   specialite.save((err, specialite) => {
@@ -20,21 +21,39 @@ router.get("/", (req, res) => {
     else res.json(specialite);
   });
 });
-router.get("/calculScore",(req,res) => {
+router.get("/calculScore", (req, res) => {
   var specilaite = new specialiteController();
   specilaite.CalculScore(req.body.id).then(response => {
-    res.json(response)
-  })
-})
+    res.json(response);
+  });
+});
+router.post("/quiz", function(req,res) {
+  var msg = req.body.msg
+  chatbotConnect(msg)
+  .then(function(response) {
+    console.log()
+    if(response[0].queryResult.intent.displayName === "firstQ"){
+      if(response[0].queryResult.parameters.fields.firstq.stringValue === "math"){
+        
+      }
+      if(response[0].queryResult.parameters.fields.firstq.stringValue === "developpement"){
 
+      }
+      if(response[0].queryResult.parameters.fields.firstq.stringValue === "reseaux"){
+
+      }
+      res.json(response[0].queryResult.parameters.fields.firstq.stringValue)
+    }
+  })
+ 
+})
 router.post("/specialites", function(req, res, next) {
   var msg = req.body.msg;
-  var id = req.body.id
-  console.log(id)
+  var id = req.body.id;
+  console.log(id);
   chatbotConnect(msg)
     .then(function(response) {
       switch (response[0].queryResult.intent.displayName) {
-  
         case "listSpecialites":
           var specilaite = new specialiteController();
           // console.log(response[0].queryResult.parameters.fields.Specialite.stringValue)
@@ -150,294 +169,542 @@ router.post("/specialites", function(req, res, next) {
                 "Génie logiciel & atelier GL": glNote / 20,
                 "Technologies Web 2.0": webNote / 20,
                 "Langage de Modélisation (UML)": umlNote / 20
-              })
-              var glValue = output["gl"]
-              var twinValue = output["twin"]
-              var simValue = output["sim"]
-              var dsValue = output["ds"]
-              var twinDsValue = output["twinDs"]
-              var twinSimValue = output["twinSim"]
-              var simGlValue = output["simGl"]
-              var twinGlValue = output["twinGl"]
-              var twinSimGlValue = output["twinSimGl"]
-              var results = []
-              results.push(glValue,twinValue,simValue,dsValue,twinDsValue,twinSimValue,simGlValue,twinGlValue,twinSimGlValue)
-              var maxValue = Math.max(...results)
-              
-              for (var i = 0 ; i<results.length ; i++){
-                  if(results[i] === maxValue){
-                      var position = i;
-                  }
+              });
+              var glValue = output["gl"];
+              var twinValue = output["twin"];
+              var simValue = output["sim"];
+              var dsValue = output["ds"];
+              var twinDsValue = output["twinDs"];
+              var twinSimValue = output["twinSim"];
+              var simGlValue = output["simGl"];
+              var twinGlValue = output["twinGl"];
+              var twinSimGlValue = output["twinSimGl"];
+              var results = [];
+              results.push(
+                glValue,
+                twinValue,
+                simValue,
+                dsValue,
+                twinDsValue,
+                twinSimValue,
+                simGlValue,
+                twinGlValue,
+                twinSimGlValue
+              );
+              var maxValue = Math.max(...results);
+
+              for (var i = 0; i < results.length; i++) {
+                if (results[i] === maxValue) {
+                  var position = i;
+                }
               }
-              switch(position){
-                case 0 :
-                  var maxSpecialite = "gl"
-                break;
-                case 1 :
-                  var maxSpecialite = "twin"
-                break;
-                case 2 :
-                  var maxSpecialite = "sim"
-                break;
-                case 3 :
-                  var maxSpecialite = "ds"
-                break;
-                case 4 :
-                  var maxSpecialite = "twinDs"
-                break;
-                case 5 :
-                  var maxSpecialite = "twinSim"
-                break;
-                case 6 :
-                  var maxSpecialite = "simGl"
-                break;
-                case 7 :
-                  var maxSpecialite = "twinGl"
-                break;
-                case 8 :
-                  var maxSpecialite = "twinSimGl"
-                break;
+              switch (position) {
+                case 0:
+                  var maxSpecialite = "gl";
+                  break;
+                case 1:
+                  var maxSpecialite = "twin";
+                  break;
+                case 2:
+                  var maxSpecialite = "sim";
+                  break;
+                case 3:
+                  var maxSpecialite = "ds";
+                  break;
+                case 4:
+                  var maxSpecialite = "twinDs";
+                  break;
+                case 5:
+                  var maxSpecialite = "twinSim";
+                  break;
+                case 6:
+                  var maxSpecialite = "simGl";
+                  break;
+                case 7:
+                  var maxSpecialite = "twinGl";
+                  break;
+                case 8:
+                  var maxSpecialite = "twinSimGl";
+                  break;
               }
               var specialite = new specialiteController();
               specialite.getNotesUser(id).then(user => {
-                var tabNotes =[]
-                switch(maxSpecialite){
-                  case "twin" :  
-                        for(var i in user.notes){
-                          if(user.notes[i].matiere === "Sys. De Gestion de Bases de Données"){
-                            var obj = {matiere : "Sys. De Gestion de Bases de Données" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Projet développement Web Java"){
-                            var obj = {matiere : "Projet développement Web Java" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Technologies Web 2.0"){
-                            var obj = {matiere : "Technologies Web 2.0" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                        }
-                 
-                  break;
-                  case "gl" : 
-                      for(var i in user.notes){
-                        if(user.notes[i].matiere === "Langage de Modélisation (UML)"){
-                          var obj = {matiere : "Langage de Modélisation (UML)" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Conception par Objet et Programmation Java"){
-                          var obj = {matiere : "Conception par Objet et Programmation Java" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Technologies Web 2.0"){
-                          var obj = {matiere : "Technologies Web 2.0" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Génie logiciel & atelier GL"){
-                          var obj = {matiere : "Génie logiciel & atelier GL" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
+                var tabNotes = [];
+                switch (maxSpecialite) {
+                  case "twin":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere ===
+                        "Sys. De Gestion de Bases de Données"
+                      ) {
+                        var obj = {
+                          matiere: "Sys. De Gestion de Bases de Données",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
                       }
-                  break;
-                  case "sim" : 
-                      for(var i in user.notes){
-                        if(user.notes[i].matiere === "Programmation des terminaux mobiles"){
-                          var obj = {matiere : "Programmation des terminaux mobiles" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Conception par Objet et Programmation Java"){
-                          var obj = {matiere : "Conception par Objet et Programmation Java" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Projet développement Web Java"){
-                          var obj = {matiere : "Projet développement Web Java" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
+                      if (
+                        user.notes[i].matiere ===
+                        "Projet développement Web Java"
+                      ) {
+                        var obj = {
+                          matiere: "Projet développement Web Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
                       }
-                  break;
-                  case "ds" : 
-                      for(var i in user.notes){
-                        if(user.notes[i].matiere === "Probabilité & Statistique"){
-                          var obj = {matiere : "Probabilité & Statistique" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Compléments de Mathématique"){
-                          var obj = {matiere : "Compléments de Mathématique" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Analyse de Fourrier"){
-                          var obj = {matiere : "Analyse de Fourrier" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Analyse numérique"){
-                          var obj = {matiere : "Analyse numérique" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Sys. De Gestion de Bases de Données"){
-                          var obj = {matiere : "Sys. De Gestion de Bases de Données" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Projet développement Web Java"){
-                          var obj = {matiere : "Projet développement Web Java" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                      
+                      if (user.notes[i].matiere === "Technologies Web 2.0") {
+                        var obj = {
+                          matiere: "Technologies Web 2.0",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
                       }
-                  break;
-                  case "twinDs" : 
-                      for(var i in user.notes){
-                        if(user.notes[i].matiere === "Probabilité & Statistique"){
-                          var obj = {matiere : "Probabilité & Statistique" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Compléments de Mathématique"){
-                          var obj = {matiere : "Compléments de Mathématique" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Analyse de Fourrier"){
-                          var obj = {matiere : "Analyse de Fourrier" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Analyse numérique"){
-                          var obj = {matiere : "Analyse numérique" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Sys. De Gestion de Bases de Données"){
-                          var obj = {matiere : "Sys. De Gestion de Bases de Données" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Projet développement Web Java"){
-                          var obj = {matiere : "Projet développement Web Java" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                        if(user.notes[i].matiere === "Technologies Web 2.0"){
-                          var obj = {matiere : "Technologies Web 2.0" , note : user.notes[i].note}
-                          tabNotes.push(obj)
-                        }
-                      }
-                  break;
-                  case "twinSim" : 
-                      for(var i in user.notes){
-                          if(user.notes[i].matiere === "Programmation des terminaux mobiles"){
-                            var obj = {matiere : "Programmation des terminaux mobiles" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Conception par Objet et Programmation Java"){
-                            var obj = {matiere : "Conception par Objet et Programmation Java" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Sys. De Gestion de Bases de Données"){
-                            var obj = {matiere : "Sys. De Gestion de Bases de Données" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Projet développement Web Java"){
-                            var obj = {matiere : "Projet développement Web Java" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Technologies Web 2.0"){
-                            var obj = {matiere : "Technologies Web 2.0" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
+                    }
 
+                    break;
+                  case "gl":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere ===
+                        "Langage de Modélisation (UML)"
+                      ) {
+                        var obj = {
+                          matiere: "Langage de Modélisation (UML)",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
                       }
-                  break;
-                  case "simGl" : 
-                      for(var i in user.notes){
-                          if(user.notes[i].matiere === "Programmation des terminaux mobiles"){
-                            var obj = {matiere : "Programmation des terminaux mobiles" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Conception par Objet et Programmation Java"){
-                            var obj = {matiere : "Conception par Objet et Programmation Java" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Projet développement Web Java"){
-                            var obj = {matiere : "Projet développement Web Java" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Technologies Web 2.0"){
-                            var obj = {matiere : "Technologies Web 2.0" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Langage de Modélisation (UML)"){
-                            var obj = {matiere : "Langage de Modélisation (UML)" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
-                          if(user.notes[i].matiere === "Génie logiciel & atelier GL"){
-                            var obj = {matiere : "Génie logiciel & atelier GL" , note : user.notes[i].note}
-                            tabNotes.push(obj)
-                          }
+                      if (
+                        user.notes[i].matiere ===
+                        "Conception par Objet et Programmation Java"
+                      ) {
+                        var obj = {
+                          matiere: "Conception par Objet et Programmation Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Technologies Web 2.0") {
+                        var obj = {
+                          matiere: "Technologies Web 2.0",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere === "Génie logiciel & atelier GL"
+                      ) {
+                        var obj = {
+                          matiere: "Génie logiciel & atelier GL",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                    }
+                    break;
+                  case "sim":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere ===
+                        "Programmation des terminaux mobiles"
+                      ) {
+                        var obj = {
+                          matiere: "Programmation des terminaux mobiles",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Conception par Objet et Programmation Java"
+                      ) {
+                        var obj = {
+                          matiere: "Conception par Objet et Programmation Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Projet développement Web Java"
+                      ) {
+                        var obj = {
+                          matiere: "Projet développement Web Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                    }
+                    break;
+                  case "ds":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere === "Probabilité & Statistique"
+                      ) {
+                        var obj = {
+                          matiere: "Probabilité & Statistique",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere === "Compléments de Mathématique"
+                      ) {
+                        var obj = {
+                          matiere: "Compléments de Mathématique",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Analyse de Fourrier") {
+                        var obj = {
+                          matiere: "Analyse de Fourrier",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Analyse numérique") {
+                        var obj = {
+                          matiere: "Analyse numérique",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Sys. De Gestion de Bases de Données"
+                      ) {
+                        var obj = {
+                          matiere: "Sys. De Gestion de Bases de Données",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Projet développement Web Java"
+                      ) {
+                        var obj = {
+                          matiere: "Projet développement Web Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                    }
+                    break;
+                  case "twinDs":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere === "Probabilité & Statistique"
+                      ) {
+                        var obj = {
+                          matiere: "Probabilité & Statistique",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere === "Compléments de Mathématique"
+                      ) {
+                        var obj = {
+                          matiere: "Compléments de Mathématique",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Analyse de Fourrier") {
+                        var obj = {
+                          matiere: "Analyse de Fourrier",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Analyse numérique") {
+                        var obj = {
+                          matiere: "Analyse numérique",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Sys. De Gestion de Bases de Données"
+                      ) {
+                        var obj = {
+                          matiere: "Sys. De Gestion de Bases de Données",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Projet développement Web Java"
+                      ) {
+                        var obj = {
+                          matiere: "Projet développement Web Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Technologies Web 2.0") {
+                        var obj = {
+                          matiere: "Technologies Web 2.0",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                    }
+                    break;
+                  case "twinSim":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere ===
+                        "Programmation des terminaux mobiles"
+                      ) {
+                        var obj = {
+                          matiere: "Programmation des terminaux mobiles",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Conception par Objet et Programmation Java"
+                      ) {
+                        var obj = {
+                          matiere: "Conception par Objet et Programmation Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Sys. De Gestion de Bases de Données"
+                      ) {
+                        var obj = {
+                          matiere: "Sys. De Gestion de Bases de Données",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Projet développement Web Java"
+                      ) {
+                        var obj = {
+                          matiere: "Projet développement Web Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Technologies Web 2.0") {
+                        var obj = {
+                          matiere: "Technologies Web 2.0",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                    }
+                    break;
+                  case "simGl":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere ===
+                        "Programmation des terminaux mobiles"
+                      ) {
+                        var obj = {
+                          matiere: "Programmation des terminaux mobiles",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Conception par Objet et Programmation Java"
+                      ) {
+                        var obj = {
+                          matiere: "Conception par Objet et Programmation Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Projet développement Web Java"
+                      ) {
+                        var obj = {
+                          matiere: "Projet développement Web Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Technologies Web 2.0") {
+                        var obj = {
+                          matiere: "Technologies Web 2.0",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Langage de Modélisation (UML)"
+                      ) {
+                        var obj = {
+                          matiere: "Langage de Modélisation (UML)",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere === "Génie logiciel & atelier GL"
+                      ) {
+                        var obj = {
+                          matiere: "Génie logiciel & atelier GL",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                    }
+                    break;
+                  case "twinGl":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere ===
+                        "Langage de Modélisation (UML)"
+                      ) {
+                        var obj = {
+                          matiere: "Langage de Modélisation (UML)",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Conception par Objet et Programmation Java"
+                      ) {
+                        var obj = {
+                          matiere: "Conception par Objet et Programmation Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Technologies Web 2.0") {
+                        var obj = {
+                          matiere: "Technologies Web 2.0",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere === "Génie logiciel & atelier GL"
+                      ) {
+                        var obj = {
+                          matiere: "Génie logiciel & atelier GL",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Sys. De Gestion de Bases de Données"
+                      ) {
+                        var obj = {
+                          matiere: "Sys. De Gestion de Bases de Données",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Projet développement Web Java"
+                      ) {
+                        var obj = {
+                          matiere: "Projet développement Web Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                    }
+                    break;
+                  case "twinSimGl":
+                    for (var i in user.notes) {
+                      if (
+                        user.notes[i].matiere ===
+                        "Sys. De Gestion de Bases de Données"
+                      ) {
+                        var obj = {
+                          matiere: "Sys. De Gestion de Bases de Données",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Projet développement Web Java"
+                      ) {
+                        var obj = {
+                          matiere: "Projet développement Web Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (user.notes[i].matiere === "Technologies Web 2.0") {
+                        var obj = {
+                          matiere: "Technologies Web 2.0",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Programmation des terminaux mobiles"
+                      ) {
+                        var obj = {
+                          matiere: "Programmation des terminaux mobiles",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Conception par Objet et Programmation Java"
+                      ) {
+                        var obj = {
+                          matiere: "Conception par Objet et Programmation Java",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere ===
+                        "Langage de Modélisation (UML)"
+                      ) {
+                        var obj = {
+                          matiere: "Langage de Modélisation (UML)",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                      if (
+                        user.notes[i].matiere === "Génie logiciel & atelier GL"
+                      ) {
+                        var obj = {
+                          matiere: "Génie logiciel & atelier GL",
+                          note: user.notes[i].note
+                        };
+                        tabNotes.push(obj);
+                      }
+                    }
 
-                      }
-                  break;
-                  case "twinGl" : 
-                  for(var i in user.notes){
-                    if(user.notes[i].matiere === "Langage de Modélisation (UML)"){
-                      var obj = {matiere : "Langage de Modélisation (UML)" , note : user.notes[i].note}
-                      tabNotes.push(obj)
-                    }
-                    if(user.notes[i].matiere === "Conception par Objet et Programmation Java"){
-                      var obj = {matiere : "Conception par Objet et Programmation Java" , note : user.notes[i].note}
-                      tabNotes.push(obj)
-                    }
-                    if(user.notes[i].matiere === "Technologies Web 2.0"){
-                      var obj = {matiere : "Technologies Web 2.0" , note : user.notes[i].note}
-                      tabNotes.push(obj)
-                    }
-                    if(user.notes[i].matiere === "Génie logiciel & atelier GL"){
-                      var obj = {matiere : "Génie logiciel & atelier GL" , note : user.notes[i].note}
-                      tabNotes.push(obj)
-                    }
-                    if(user.notes[i].matiere === "Sys. De Gestion de Bases de Données"){
-                      var obj = {matiere : "Sys. De Gestion de Bases de Données" , note : user.notes[i].note}
-                      tabNotes.push(obj)
-                    }
-                    if(user.notes[i].matiere === "Projet développement Web Java"){
-                      var obj = {matiere : "Projet développement Web Java" , note : user.notes[i].note}
-                      tabNotes.push(obj)
-                    }
-                  }
-                break;
-                case "twinSimGl" :  
-                for(var i in user.notes){
-                  if(user.notes[i].matiere === "Sys. De Gestion de Bases de Données"){
-                    var obj = {matiere : "Sys. De Gestion de Bases de Données" , note : user.notes[i].note}
-                    tabNotes.push(obj)
-                  }
-                  if(user.notes[i].matiere === "Projet développement Web Java"){
-                    var obj = {matiere : "Projet développement Web Java" , note : user.notes[i].note}
-                    tabNotes.push(obj)
-                  }
-                  if(user.notes[i].matiere === "Technologies Web 2.0"){
-                    var obj = {matiere : "Technologies Web 2.0" , note : user.notes[i].note}
-                    tabNotes.push(obj)
-                  }
-                  if(user.notes[i].matiere === "Programmation des terminaux mobiles"){
-                    var obj = {matiere : "Programmation des terminaux mobiles" , note : user.notes[i].note}
-                    tabNotes.push(obj)
-                  }
-                  if(user.notes[i].matiere === "Conception par Objet et Programmation Java"){
-                    var obj = {matiere : "Conception par Objet et Programmation Java" , note : user.notes[i].note}
-                    tabNotes.push(obj)
-                  }
-                  if(user.notes[i].matiere === "Langage de Modélisation (UML)"){
-                    var obj = {matiere : "Langage de Modélisation (UML)" , note : user.notes[i].note}
-                    tabNotes.push(obj)
-                  }
-                  if(user.notes[i].matiere === "Génie logiciel & atelier GL"){
-                    var obj = {matiere : "Génie logiciel & atelier GL" , note : user.notes[i].note}
-                    tabNotes.push(obj)
-                  }
+                    break;
                 }
-         
-                 break;
-                }
-                res.json({intent :"recommandationSpecialite" ,Specialite : maxSpecialite , notes : tabNotes})
-            
-              })
-      
-             
-
+                res.json({
+                  intent: "recommandationSpecialite",
+                  Specialite: maxSpecialite,
+                  notes: tabNotes
+                });
+              });
             }
           });
           break;
