@@ -98,8 +98,8 @@ class ResultatPreferences extends Component {
     axios
       .post("http://localhost:4000/modulesSpecialite/choixSpecialite", obj)
       .then(data => {
-        console.log(data.data);
       });
+      localStorage.removeItem("preference")
   }
   render() {
     return (

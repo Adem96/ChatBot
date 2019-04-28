@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import HeaderAdmin from "../component/headerAdmin";
 import IsConnect from "../component/isConnect";
 import axios from "axios";
-
+import socketIOClient from "socket.io-client";
 class Admin extends Component {
   constructor() {
     super();
@@ -11,6 +11,7 @@ class Admin extends Component {
       nbrStudents: 0,
       studentsChoix: [],
       endpoint: "http://127.0.0.1:4000",
+      notifications : ""
     };
   }
 
@@ -55,6 +56,22 @@ class Admin extends Component {
               console.log("error")
           }
       })
+      var socket = socketIOClient("http://127.0.0.1:4000");
+      
+      socket.on("notification", data => {
+        console.log(data)
+        if(localStorage.notifications !== undefined){
+          var tabNotif = JSON.parse(localStorage.notifications)
+          tabNotif.push.apply(tabNotif , data)
+          localStorage.setItem("notifications" , JSON.stringify(tabNotif))
+        }else {
+          localStorage.setItem("notifications" , JSON.stringify(data))
+        }
+
+     });
+    
+    
+     
   }
   render() {
     return (
