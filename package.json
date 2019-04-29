@@ -19,14 +19,18 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
+    "mdbreact": "^4.13.0",
     "mongoose": "^5.4.20",
     "morgan": "~1.9.0",
-    "navigator": "^1.0.1",
     "ngrok": "^3.1.1",
     "node-notifier": "^5.4.0",
     "node-where": "^1.1.0",
+    "scrape-linkedin": "0.0.2",
+    "navigator": "^1.0.1",
     "request": "^2.88.0",
     "scrape-linkedin": "0.0.2",
-    "twilio": "^3.30.2"
+    "twilio": "^3.30.2",
+    "socket.io": "^2.2.0"
+
   }
 }
