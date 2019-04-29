@@ -23,7 +23,7 @@ class Header extends Component {
   actionOnLogo() {
     if (localStorage.getItem("token") !== null) {
       this.setState({
-        path: "/profile"
+        path: "/profile",
       });
     } else {
       this.setState({
@@ -50,7 +50,7 @@ class Header extends Component {
                 </li>
                 <li className="nav-item">Scolarité</li>
                 <li className="nav-item">
-                  <NavLink className="NavLink" to="/Admission">
+                  <NavLink className="NavLink" to="/AideAdmission">
                     Admission
                   </NavLink>
                 </li>

@@ -10,6 +10,11 @@ import Footer from "./component/footer";
 import Profile from "./component/profile";
 import Entraid from "./component/entraid"
 import Admission from "./component/admission"
+import TestAdmission from './component/admissionTest/Main'
+import facialrecognition from './component/admissionTest/facialrecognition'
+import chat from './component/chat'
+import chatbot from "./component/chatbot"
+import voiceRecognitions from "./component/speechRecognition"
 class App extends Component {
 
   componentWillMount(){
@@ -31,6 +36,11 @@ class App extends Component {
               <Route path="/Profile" component={Profile} exact />
               <Route path="/Entraid" component={Entraid} exact />
               <Route path="/Admission" component={Admission} exact />
+              <Route path="/TestAdmission" component={TestAdmission} exact />
+            <Route path="/Reconaissance" component={facialrecognition} exact />
+            <Route path="/chat" component={chat} exact />
+            <Route path="/AideAdmission" component={chatbot} exact />
+            <Route path="/voiceRecognition" component={voiceRecognitions} exact />
           </Switch>
           <Footer />
         </BrowserRouter>

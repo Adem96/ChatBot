@@ -15,7 +15,7 @@ var covRouter = require('./api/covoiturage')
 
 var revRouter = require('./api/revision')
 var pfeRouter = require('./api/pfe')
-
+var testadmission = require('./api/testadmission.js')
 var faqRouter = require('./api/faq')
 
 
@@ -44,7 +44,11 @@ app.use('/modulesSpecialite',moduleSpecialite)
 app.use('/cov',covRouter)
 app.use('/revision',revRouter)
 app.use('/pfe',pfeRouter)
+app.use('/test',testadmission);
 
+var router = express.Router();
+app.use('/user', router);
+require(__dirname + '/controller/user')(router);
 
 const expressip = require('express-ip');
 app.use(expressip().getIpInfoMiddleware);
@@ -54,6 +58,9 @@ app.get('/abc', function (req, res) {
   var message = `Hey, you are browsing from ${ipInfo.city}, ${ipInfo.country},`;
   res.send(message);
 });
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

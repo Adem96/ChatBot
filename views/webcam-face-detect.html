@@ -1,0 +1,33 @@
+	<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1" />
+        <title>Face detection Node Opencv</title>
+    </head>
+    <body>
+        <div class="container">
+            <canvas id="canvas-video" width="640" height="480"></canvas>
+        </div>
+        <script src="http://localhost:4000/socket.io/socket.io.js"></script>
+        <script src="/js/script.js"></script>
+      
+    </body>
+   <div>
+ <button id="capturebutton" onclick="capButton()">Capture</button>
+ <form id="uploadForm" action="http://127.0.0.1:4000/upload" method="POST">
+    <input id="fileInput" type="text" name="fileData"/>
+    <input id="captureButton" type="submit" value="Upload"/>
+
+   
+</form>
+
+    </div>
+
+    <div>
+
+        <canvas class="part2" id="canvas" width=640 heigh="400"></canvas>
+       
+
+    </div>
+</html>
+

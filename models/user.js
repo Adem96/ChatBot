@@ -21,6 +21,7 @@ var userSchema = new mongoose.Schema({
     age : {type : Number},
     specialite : {type : specialite , default : null},
     notes : [notes],
+    telephone : {type:String},
     subjects:[subjects],
     reclamations:[reclamations],
     role : {type : String , default : null}
