@@ -42,9 +42,10 @@ router.post("/reclamation", (req, res) => {
     var reclamations = {
 
         contenu: req.body.contenu,
-        matiere: req.body.matiere,
+        matiere: req.body.matiere
 
     }
+
 
     var rec = new Reclamation(reclamations);
     rec.save((err, f) => {
@@ -55,9 +56,11 @@ router.post("/reclamation", (req, res) => {
     console.log(reclamations)
     var id = req.body.id
     console.log(id);
-    User.findOneAndUpdate(
-        {_id: id},
-        {$push: {reclamations: reclamations}},
+    User.findOne({_id: id}, (err, user) => {
+
+            user.reclamations.push(reclamations)
+            user.save()
+        }
     );
 
 
@@ -186,18 +189,71 @@ router.post("/calendrier", function (req, res, next) {
         });
 });
 
+router.post("/CanvasNotes", function (req, res, next) {
+    var msg = req.body.msg;
+    chatbotConnect(msg)
+        .then(function (response) {
 
-router.get("/reclamations", function (req, res, next) {
-
+            switch (response[0].queryResult.intent.displayName) {
+                case "Graphes":
                     var faq = new faqController();
-                    faq.getAllReclamations().then(response => {
-                        res.json(response);
+                    faq.getCalendar(response[0].queryResult.parameters.fields.Notes.stringValue).then(response => {
+                        res.json({intent: "Graphes", response});
                     });
+                    break;
 
+                default:
+                    res.json({error: "je ne comprend pas ce que vous dites"});
+            }
+        })
+        .catch(function (err) {
+            res.json(err);
+        });
 });
 
 
+router.get("/reclamations", function (req, res, next) {
+    var faq = new faqController();
+    faq.getAllReclamations().then(response => {
+        res.json(response);
+    });
+});
 
+
+router.post("/treatRec",async function (req, res, next) {
+
+    // var user = await User.findOne({_id: req.body.idU})
+    // console.log(user)
+    // var rec = user.reclamations
+    // console.log(rec)
+    // for(var i in rec){
+    //
+    //     if(rec[i]._id===req.body.idR){
+    //
+    //         rec[i].etat = 'Traitée'
+    //
+    //     }
+    //
+    // }
+    // user.save();
+    // res.json('Traitée')
+
+
+    User.findOne({_id:req.body.idU},(err,user)=>{
+
+        user.reclamations.map(req=>{
+            req.etat = 'Traitée'
+
+
+        })
+        notifier.notify('Réclamation traitée avec succès')
+
+        user.save();
+
+
+    })
+
+});
 
 
 module.exports = router;

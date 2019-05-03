@@ -14,20 +14,22 @@ import password from "../images/password.png";
 import Modal from "react-modal";
 import "./CSS/foyer.css"
 import sim from "../images/sim.png";
+import CanvasJSReact from "../assets/canvasjs.react";
+var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 
 
-class FoyerForm extends Component {
+class CanvasNotes extends Component {
     constructor() {
         super();
         this.state = {
             isconnect: false,
             isShowing: false,
-            modalIsOpen: false
+            modalIsOpen: false,
+            optCan:[]
         };
 
-        this.openModal = this.openModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
     }
     componentWillMount(){
         if (localStorage.token !== undefined) {
@@ -35,6 +37,30 @@ class FoyerForm extends Component {
                 isConnect: true
             });
         }
+
+        var notes = jwt_decode(localStorage.token).user.notes
+        console.log(notes)
+        var notesTab = []
+        notes.map(e=>{
+
+            var obj = {
+
+                y : e.note,
+                label:e.matiere
+
+            }
+        notesTab.push(obj)
+
+        })
+
+        this.setState({
+
+            optCan:notesTab
+
+        })
+
+
+
     }
     isconnect() {
         if (localStorage.token !== undefined) {
@@ -54,45 +80,41 @@ class FoyerForm extends Component {
         });
     }
 
-    openModal() {
-        this.setState({ modalIsOpen: true });
-    }
-    closeModal() {
-        this.setState({ modalIsOpen: false });
-    }
-
-
-    openModalHandler = () => {
-        this.setState({
-            isShowing: true
-        });
-    }
-
-    closeModalHandler = () => {
-        this.setState({
-            isShowing: false
-        });
-    }
-
 
   render() {
-    return (
+
+
+
+      const options = {
+          animationEnabled: true,
+          exportEnabled: true,
+          theme: "light1", // "light1", "dark1", "dark2"
+          title:{
+              text: ""
+          },
+          data: [{
+              type: "pie",
+              indexLabel: "{label}: {y}",
+              startAngle: -90,
+              dataPoints: this.state.optCan
+          }]
+      }
+
+
+
+
+
+      return (
         <>
             <Header/>
             <div hidden={!this.state.isConnect}>{this.isconnect()}</div>
             <div className="container-fluid containerBodyS">
         <div className="row">
           <div className="col-lg-11 colBodyS">
-            <p><span><img className="arrow" src={arrow} alt="arrow"/></span>Foyer</p>
-              <div className="divFoyer">
-
-                  <h1>Grille tarifaire Année universitaire 2018/2019 « Etudiants internationaux»</h1>
-                  <img className="imgFoyer1" src={logo1} alt="imgFoyer1" />
-                  <h1>Grille tarifaire Année universitaire 2018/2019 « Etudiants Tunisiens »</h1>
-                  <img className="imgFoyer1" src={logo2} alt="imgFoyer1" />
-
-
-
+            <p><span><img className="arrow" src={arrow} alt="arrow"/></span>Notes</p>
+              <div>
+                  <CanvasJSChart options = {options}
+                  />
               </div>
               {/* <button onClick={this.testerExpress.bind(this)}>Demander</button> */}
             </div>
@@ -102,4 +124,4 @@ class FoyerForm extends Component {
     );
   }
 }
-export default FoyerForm;
+export default CanvasNotes;

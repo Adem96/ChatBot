@@ -15,10 +15,11 @@ import Entraid from "./component/entraid"
 import Admission from "./component/admission"
 import CalendarEtudiant from "./component/CalendarEtudiant"
 import ListReclamation from "./component/ListReclamation";
-
 import QuizPreferences from "./component/quizPreferences"
 import ResultatPreferences from "./component/resultatPreferences"
 import Admin from "./component/admin"
+import AdminReclamation from "./component/AdminReclamation";
+import CanvasNotes from "./component/CanvasNotes";
 class App extends Component {
 
   componentWillMount(){
@@ -44,16 +45,18 @@ class App extends Component {
               <Route path="/DetailsSpecialite" component={DetailsSpecialite} exact />
               <Route path="/suggestion" component={SuggestionSpecialite} exact />
               <Route path="/Profile" component={Profile} exact />
-              <Route path="/Profile" component={Profile} exact />
-
               <Route path="/Entraid" component={Entraid} exact />
               <Route path="/Admission" component={Admission} exact />
               <Route path="/ListReclamation" component={ListReclamation} exact />
-
               <Route path="/QuizPreferences" component={QuizPreferences} exact />
               <Route path="/ResultatPreferences" component={ResultatPreferences} exact />
               <Route path="/Admin/affectation" component={Admin} exact />
               <Route path="/Admin/profile" component={ProfileAdmin} exact />
+              <Route path="/admin/reclamation" component={AdminReclamation} exact />
+              <Route path="/CanvasNotes" component={CanvasNotes} exact />
+
+
+
           </Switch>
           <Footer />
         </BrowserRouter>

@@ -25,7 +25,11 @@ import {
 } from 'mdbreact';
 
 
+
 class Scolarite extends Component {
+
+
+
     constructor() {
         super();
         this.state = {
@@ -97,16 +101,48 @@ class Scolarite extends Component {
 
 
 
-    apiFAQ(e){
+    apiFAQ(e) {
 
-        console.log('hh')
-        e.preventDefault();
-        if(this.refs.message.value.includes('calendrier')){
+        console.log('foyer')
 
-            this.props.history.push({
-                pathname: "/CalendarEtudiant"
-            })
-        }
+        const msg = {
+            msg: this.state.message
+        };
+        axios.post("http://localhost:4000/faq/rechercheF", msg).then(res => {
+            if (res.data.intent === "FAQ") {
+                this.props.history.push({
+                    pathname: "/FoyerForm"
+                })
+            }
+        });
+
+            axios.post("http://localhost:4000/faq/calendrier", msg).then(res => {
+                if (res.data.intent === "Scolarite") {
+                    this.props.history.push({
+                        pathname: "/CalendarEtudiant",
+                        state: {cals: res.data}
+
+
+                    })
+                }
+
+        });
+
+
+        axios.post("http://localhost:4000/faq/CanvasNotes", msg).then(res => {
+            if (res.data.intent === "Graphes") {
+                this.props.history.push({
+                    pathname: "/CanvasNotes",
+
+
+                })
+            }
+            else
+                console.log('non')
+
+        });
+
+
     }
 
 
@@ -128,8 +164,14 @@ class Scolarite extends Component {
 
 
     render() {
+
+
+
+
         return (
+
             <>
+
                 <Header/>
                 <div hidden={!this.state.isConnect}>{this.isconnect()}</div>
                 <div className="container-fluid containerBodyS">
@@ -137,6 +179,8 @@ class Scolarite extends Component {
                         <div className="col-lg-11 colBodyS">
                             <p><span><img className="arrow" src={arrow} alt="arrow"/></span>Scolarité</p>
                             <div>
+
+
 
                                 <MDBDropdown>
                                     <MDBDropdownToggle caret color="danger">
@@ -162,6 +206,7 @@ class Scolarite extends Component {
                                                 <select className="custom-select bMDBRowser-default" id="defaultSelect"
                                                         required ref="matiere">
                                                     {jwt_decode(localStorage.token).user.notes.map(note => {
+
                                                         return (
                                                             <option value={note.matiere}>{note.matiere}</option>
                                                         );
