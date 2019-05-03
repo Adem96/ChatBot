@@ -21,7 +21,10 @@ var userSchema = new mongoose.Schema({
     age : {type : Number},
     specialite : {type : String },
     notes : [notes],
+    telephone : {type:String},
+
     specialiteUpdate : {type : Boolean , default : false} ,
+
     subjects:[subjects],
     reclamations:[reclamations],
     listChoix : [String],

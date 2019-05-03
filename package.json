@@ -31,5 +31,8 @@
     "socket.io": "^2.2.0",
     "cloudinary": "^1.13.2",
     "multer": "^1.4.1"
+    "scrape-linkedin": "0.0.2",
+    "twilio": "^3.30.2",
+    "socket.io": "^2.2.0"
   }
 }
