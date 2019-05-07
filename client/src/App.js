@@ -18,6 +18,13 @@ import voiceRecognitions from "./component/speechRecognition"
 import Admin from "./component/admin"
 import ProfileAdmin from "./component/profileAdmin"
 import validationTest from "./component/validationTest"
+import CalendarEtudiant from "./component/CalendarEtudiant"
+import ListReclamation from "./component/ListReclamation";
+import QuizPreferences from "./component/quizPreferences"
+import ResultatPreferences from "./component/resultatPreferences"
+import Admin from "./component/admin"
+import AdminReclamation from "./component/AdminReclamation";
+import CanvasNotes from "./component/CanvasNotes";
 
 class App extends Component {
 
@@ -49,6 +56,16 @@ class App extends Component {
               <Route path="/Admin/affectation" component={Admin} exact />
               <Route path="/Admin/profile" component={ProfileAdmin} exact />
               <Route path="/Admin/testAdmission" component={validationTest} exact />
+              <Route path="/ListReclamation" component={ListReclamation} exact />
+              <Route path="/QuizPreferences" component={QuizPreferences} exact />
+              <Route path="/ResultatPreferences" component={ResultatPreferences} exact />
+              <Route path="/Admin/affectation" component={Admin} exact />
+              <Route path="/Admin/profile" component={ProfileAdmin} exact />
+              <Route path="/admin/reclamation" component={AdminReclamation} exact />
+              <Route path="/CanvasNotes" component={CanvasNotes} exact />
+
+
+
           </Switch>
           <Footer />
         </BrowserRouter>

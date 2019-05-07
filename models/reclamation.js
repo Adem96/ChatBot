@@ -6,8 +6,10 @@ const mongoose = require('mongoose'), Schema = mongoose.Schema;
 var reclamationSchema = mongoose.Schema({
     titre : {type:String,trim : true},
     contenu:{type:String,trim : true},
-    matiere:{type:Schema.Types.ObjectId, ref:'Subject'},
-    user:{type:Schema.Types.ObjectId, ref:'User'}
+    user:{type:Schema.Types.ObjectId, ref:'User'},
+    matiere:{type:String,trim : true},
+    date:{type:Date,default: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')},
+    etat:{type:String,default:'En Attente'}
 
 })
 

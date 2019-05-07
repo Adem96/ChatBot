@@ -10,6 +10,11 @@ import close from "../images/close.png";
 import user from "../images/user.png";
 import password from "../images/password.png";
 import Modal from "react-modal";
+import "./CSS/main.css"
+import "./CSS/dayGrid.css"
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
+
 
 import {
     MDBBtn,
@@ -32,16 +37,25 @@ class ListReclamation extends Component {
             isconnect: false,
             isShowing: false,
             modalIsOpen: false,
-            listReclamations:[]
+            listRec:[]
         };
 
 
     }
 
     componentDidMount() {
+
+
+        console.log(jwt_decode(localStorage.token).user.reclamations)
+        var obj = []
+        var listVar = this.props.location.state.reclamations.response;
+
+        console.log(listVar)
         this.setState({
-            listReclamations: this.props.location.state.reclamations
-        });
+
+            listRec : listVar
+
+        })
     }
 
 
@@ -51,6 +65,9 @@ class ListReclamation extends Component {
                 isConnect: true
             });
         }
+
+
+
     }
     isconnect() {
         if (localStorage.token !== undefined) {
@@ -72,11 +89,14 @@ class ListReclamation extends Component {
 
 
     render() {
-        return (
+
+
+            return (
             <>
                 <Header/>
                 <div hidden={!this.state.isConnect}>{this.isconnect()}</div>
                 <div className="container-fluid containerBodyS">
+
                     <div className="row">
                         <div className="col-lg-11 colBodyS">
                             <p><span><img className="arrow" src={arrow} alt="arrow"/></span>Scolarité</p>
@@ -89,18 +109,24 @@ class ListReclamation extends Component {
                                             <th>Matière</th>
                                             <th>Description</th>
                                             <th>Date</th>
+                                            <th>Etat</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {this.state.listReclamations.map(rec => {
+                                        {this.props.location.state.reclamations.map(rec => {
+                                            if(rec.etat==='En Attente'){
                                             return (
                                                 <tr key={rec._id}>
                                                     <td>{rec.matiere}</td>
                                                     <td>{rec.contenu}</td>
-                                                    <td>{rec.date}</td>
+                                                    <td>{rec.date.toString()}</td>
+                                                    <td>{rec.etat}</td>
                                                 </tr>
                                             );
-                                        })}
+                                            }
+                                        })
+                                        }
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -110,6 +136,7 @@ class ListReclamation extends Component {
             </>
         );
     }
+
 }
 
 export default ListReclamation;

@@ -28,6 +28,9 @@ var db = require('./models/db')
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static("client/build"))
+} 
 app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());

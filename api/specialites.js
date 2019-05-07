@@ -15,7 +15,7 @@ router.post("/", (req, res) => {
   });
 });
 router.get("/", (req, res) => {
-  Specialite.findOne({ nom: "TWIN" }, (err, specialite) => {
+  Specialite.findOne({ nom: "twin" }, (err, specialite) => {
     if (err) res.json(err);
     else res.json(specialite);
   });
@@ -36,6 +36,7 @@ router.post("/specialites", function(req, res, next) {
       switch (response[0].queryResult.intent.displayName) {
   
         case "listSpecialites":
+     
           var specilaite = new specialiteController();
           // console.log(response[0].queryResult.parameters.fields.Specialite.stringValue)
           specilaite

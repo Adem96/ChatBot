@@ -1,0 +1,30 @@
+.divFoyer{
+
+    width: 100%;
+    height: auto;
+
+}
+.divFoyer h1 {
+    margin-left: 40px;
+    color: #a93f36 ;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+
+.imgFoyer1{
+
+    margin-left : 20%;
+    margin-bottom: 20px;
+    margin-top:20px;
+    width: 800px;
+
+
+}
+
+divimgFoyer1{
+
+
+    width: 500px;
+}
