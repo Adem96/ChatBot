@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import HeaderAdmin from "../component/headerAdmin";
 import IsConnect from "../component/isConnect";
 import axios from "axios";
-import socketIOClient from "socket.io-client";
+
 
 class AdminReclamation extends Component {
     constructor() {

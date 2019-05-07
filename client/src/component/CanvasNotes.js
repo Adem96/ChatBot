@@ -1,21 +1,16 @@
 import React, { Component } from "react";
 import "./CSS/scolarite.css"
-import axios from "axios";
+
 import arrow from "../images/arrow.png";
-import logo1 from "../images/1.png";
-import logo2 from "../images/3.png";
-import arrowRight from "../images/arrowRight.png";
+
 import Header from "../component/header";
 import IsConnect from "../component/isConnect";
 import jwt_decode from "jwt-decode"
-import close from "../images/close.png";
-import user from "../images/user.png";
-import password from "../images/password.png";
-import Modal from "react-modal";
+
 import "./CSS/foyer.css"
-import sim from "../images/sim.png";
+
 import CanvasJSReact from "../assets/canvasjs.react";
-var CanvasJS = CanvasJSReact.CanvasJS;
+
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 

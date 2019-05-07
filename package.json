@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "brain": "^1.0.0",
     "brain.js": "^1.6.1",
+    "cloudinary": "^1.13.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
@@ -19,20 +21,17 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
-    "mdbreact": "^4.13.0",
     "mongoose": "^5.4.20",
     "morgan": "~1.9.0",
+    "multer": "^1.4.1",
+    "navigator": "^1.0.1",
     "ngrok": "^3.1.1",
     "node-notifier": "^5.4.0",
     "node-where": "^1.1.0",
-    "scrape-linkedin": "0.0.2",
-    "navigator": "^1.0.1",
+    "password-hash": "^1.2.2",
     "request": "^2.88.0",
-    "socket.io": "^2.2.0",
-    "cloudinary": "^1.13.2",
-    "multer": "^1.4.1"
     "scrape-linkedin": "0.0.2",
-    "twilio": "^3.30.2",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "twilio": "^3.30.2"
   }
 }
