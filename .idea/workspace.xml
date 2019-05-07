@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f38bd56e-589a-45a3-89f4-f1add6a440f6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/assets/canvasjs.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/assets/canvasjs.react.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/images/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/images/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/faq.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/faq.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/CalendarEtudiant.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/CalendarEtudiant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/FoyerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/FoyerForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/ListReclamation.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/ListReclamation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/headerAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/headerAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/scolarite.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/scolarite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/AnnualCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/AnnualCalendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/reclamation.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/reclamation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -34,30 +21,32 @@
     <session id="-1003067521">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.26" value="2" />
+          <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="18" />
           <entry key="js" value="102" />
-          <entry key="json" value="5" />
+          <entry key="json" value="7" />
           <entry key="ts" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="18" />
-          <entry key="JSON" value="5" />
+          <entry key="JSON" value="7" />
           <entry key="JavaScript" value="102" />
           <entry key="TypeScript" value="1" />
         </counts>
@@ -66,13 +55,13 @@
         <counts>
           <entry key="css" value="404" />
           <entry key="js" value="6688" />
-          <entry key="json" value="13" />
+          <entry key="json" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="404" />
-          <entry key="JSON" value="13" />
+          <entry key="JSON" value="14" />
           <entry key="JavaScript" value="6688" />
         </counts>
       </usages-collector>
@@ -85,30 +74,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/component/scolarite.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2244">
-              <caret line="156" column="36" selection-start-line="156" selection-start-column="24" selection-end-line="156" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/component/admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="43" column="15" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/component/CanvasNotes.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -124,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="55" column="56" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
+            <state relative-caret-position="680">
+              <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -170,11 +135,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/faq.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4131">
+            <state relative-caret-position="298">
               <caret line="243" column="36" selection-start-line="243" selection-start-column="36" selection-end-line="243" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76925">
+              <caret line="4530" column="33" selection-start-line="4530" selection-start-column="33" selection-end-line="4530" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -263,7 +246,6 @@
         <option value="$PROJECT_DIR$/client/src/component/DemoApp.js" />
         <option value="$PROJECT_DIR$/models/AnnualCalendar.js" />
         <option value="$PROJECT_DIR$/models/reclamation.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/client/src/App.js" />
         <option value="$PROJECT_DIR$/client/src/component/scolarite.js" />
@@ -272,6 +254,7 @@
         <option value="$PROJECT_DIR$/client/src/component/ListReclamation.js" />
         <option value="$PROJECT_DIR$/client/src/component/AdminReclamation.js" />
         <option value="$PROJECT_DIR$/api/faq.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -292,7 +275,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="606" />
+    <option name="x" value="605" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
@@ -392,16 +375,18 @@
       <workItem from="1556484650771" duration="9062000" />
       <workItem from="1556547401672" duration="11728000" />
       <workItem from="1556814258406" duration="17000" />
+      <workItem from="1556874389210" duration="231000" />
+      <workItem from="1557262655376" duration="438000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65319000" />
+    <option name="totallyTimeSpent" value="65988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49899396" visible="true" weight="0.10839392" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49899396" visible="true" weight="0.10773298" />
       <window_info id="Structure" order="1" sideWeight="0.501006" side_tool="true" weight="0.14937212" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -414,7 +399,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49173826" visible="true" weight="0.23654391" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49173826" visible="true" weight="0.23654391" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033045" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -530,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73321">
-          <caret line="4313" column="7" selection-start-line="4313" selection-start-column="7" selection-end-line="4313" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
@@ -641,13 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/component/FoyerForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -708,8 +679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="55" column="56" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
+        <state relative-caret-position="680">
+          <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -763,8 +734,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/faq.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4131">
+        <state relative-caret-position="298">
           <caret line="243" column="36" selection-start-line="243" selection-start-column="36" selection-end-line="243" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76925">
+          <caret line="4530" column="33" selection-start-line="4530" selection-start-column="33" selection-end-line="4530" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="26" lean-forward="true" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
         </state>
       </provider>
     </entry>

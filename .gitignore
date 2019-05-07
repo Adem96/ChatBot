@@ -77,3 +77,7 @@ typings/
 .idea/workspace.xml
 .idea/workspace.xml
 .idea/workspace.xml
+.idea/workspace.xml
+.idea/workspace.xml
+package-lock.json
+client/package-lock.json
