@@ -104,9 +104,9 @@ class SuggestionSpecialite extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.location.state.notes.map(note => {
+                {this.props.location.state.notes.map( (note , index) => {
                   return (
-                    <tr>
+                    <tr key={index}>
                       <td>{note.matiere}</td>
                       <td>{note.note}</td>
                     </tr>
