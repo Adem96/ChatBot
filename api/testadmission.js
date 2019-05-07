@@ -26,6 +26,134 @@ router.post("/", (req, res) => {
   });
 
 
+  router.post('/updateTestUser/:id' ,(req, res) => {
+    TestUser.findById(req.params.id, function(err, business) {
+    if (!business)
+      res.status(404).send("data is not found");
+    else {
+        business.noteOral = req.body.noteOral;
+      
+
+        business.save().then(business => {
+          res.json('Update complete');
+      })
+      .catch(err => {
+            res.status(400).send("unable to update the database");
+      });
+    }
+  });
+});
+
+
+  router.get("/getListTests",(req,res)=> 
+
+{
+
+let leteste;
+let touslesuserstests=[];
+let etudiants=[];
+
+let jsons= {
+
+    touslesuserstests:null,
+    etudiant:null,
+    testetudiant:null,
+}
+
+    Test.find(function (err, test) {
+
+/*
+        for(let i=0;i<test.length;i++)
+        {
+
+            for(let j=0;j<test[i].listJury.length;j++)
+            {
+
+                console.log(test[i]);
+                console.log(test[i].listJury[j]);
+                if(test[i].listJury[j].nom==="fendri" && test[i].listJury[j].prenom==="ahmed")
+                {
+
+                    leteste=test[i].listJury[j];
+                    TestUser.find(function(err,testuser){
+
+
+                        testuser.forEach(element=>{
+
+
+                            if(element.test===leteste._id)
+                            {
+
+                                touslesuserstests.push(element);
+                            }
+                        })
+                    })
+                }
+            }
+
+        }*/
+        test.forEach(element => {
+
+            console.log("boucle");
+console.log(element);
+            element.listJury.forEach(elementt => {
+
+                console.log(elementt);
+               
+                if(elementt.nom==="fendri" && elementt.prenom==="ahmed")
+           {
+               
+                console.log("arrive ici");
+                leteste=element.test;
+                TestUser.find(function(err,testuser){
+
+
+                    testuser.forEach(elementtt=>{
+
+
+console.log(element._id)
+console.log(""+elementtt.test);
+
+                        if(""+elementtt.test==element._id && element._id!=undefined)
+                        {
+                             touslesuserstests.push(elementtt);
+                             jsons.testetudiant=leteste;
+                             jsons.touslesuserstests=touslesuserstests;
+                            etudiant= User.findById(elementtt.user).exec((err,test)=>{
+
+                                console.log(test);
+                                etudiants.push(test);
+                                jsons.etudiant=etudiants;
+                               
+                                res.json(jsons);
+                            });
+                        }
+                         
+
+                    })
+
+               
+                })
+
+
+
+
+           }
+
+            })
+    
+        });
+
+
+        
+    });
+
+
+  
+
+}
+)
+
   router.post("/sms",(req,res)=>
 
 {
@@ -552,6 +680,16 @@ passageEcrit:true
                         //}
                      })
            
+/*                     let jur = new User(
+                        {
+                           
+                                
+                            nom: "fendri",
+                            prenom: "ahmed"
+                       
+            
+                        })*/
+
                      let testuser = new TestUser(
                          {
                              user: userid,
@@ -561,6 +699,7 @@ passageEcrit:true
                              result: "En attente de passage",
                              classe: classechoisie.numero,
                              reconaissanceFaciale:false,
+                             
                          }
                      );
 
@@ -706,8 +845,12 @@ passageEcrit:true
         testuser.listquestions.push(question8);
         testuser.listquestions.push(question9);
         testuser.listquestions.push(question10);
+        
     
-                         
+  
+
+          
+
                    var testexis=false;
                      
 

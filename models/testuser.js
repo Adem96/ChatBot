@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+var User = require('./user').schema;
 let Schema = mongoose.Schema;
 
 
@@ -21,6 +22,7 @@ const TestuserSchema = mongoose.Schema({
     reconaissanceFaciale:{type:Boolean},
     listquestions : [listquestion],
     passageEcrit: {type:Boolean},
+    jury:[User],
     result: { type: String },
     classe : {type: String},
 });

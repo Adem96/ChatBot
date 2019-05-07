@@ -48,12 +48,11 @@ class Header extends Component {
                     Affectation
                   </NavLink>
                 </li>
-                <li className="nav-item">Menu2</li>
                 <li className="nav-item">
-                  <NavLink className="NavLink" to="">
-                    Menu3
+                <NavLink className="NavLink" to="/admin/testadmission">
+                    Test d'admission
                   </NavLink>
-                </li>
+                  </li>
                 <li className="nav-item">
                   <NavLink className="NavLink" to="">
                     Menu4

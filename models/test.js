@@ -22,7 +22,7 @@ const TestSchema = mongoose.Schema({
     date: { type: Date, require:true},
     class: { type: String},
     heure: {type:String},
-    listJury : [listJurySchema],
+    listJury : [User],
     listClasses:[listClasses]
 });
 module.exports = mongoose.model("Test", TestSchema);

@@ -7,8 +7,6 @@
 var app = require('../app');
 var app2 = require('../app');
 
-
-
 var debug = require('debug')('espritchatbot:server');
 var http = require('http');
 const routes = require('../utils/routes'); 
@@ -26,7 +24,6 @@ app2.set('port',port2)
 /**
  * Create HTTP server.
  */
-
 
 var server = http.createServer(app);
 var server2= http.createServer(app2);
@@ -52,8 +49,6 @@ io.on("connect", function(socket){
     //  io.emit('RECEIVE_MESSAGE', data);
   //})
 //}); 
-
-
 
 
 /**

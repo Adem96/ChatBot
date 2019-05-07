@@ -27,12 +27,12 @@ class Chatbot extends Component {
       
     };
 
-    /*
+    
     axios.post("http://localhost:4000/test/sms").then(res=>{
 
       console.log(res);
       
-      })*/
+      })
   
 
 

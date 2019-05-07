@@ -3,136 +3,17 @@ var router = express.Router();
 var User = require("../models/user.js");
 var specialiteController = require("../controller/specialites.js");
 
-router.get("/studentChoix", (req, res) => {
-  User.find(
-    { listChoix: { $exists: true, $ne: [] }, specialiteUpdate: { $eq: true } },
-    (err, users) => {
-      if (err) res.json(err);
-      else res.json(users);
-    }
-  );
-});
+router.post("/affectation", (req,res) => {
+    var specilaite = new specialiteController();
+    User.find((err,users) => {
+     if (err) res.json(err)
+     else {
+       res.json(specilaite.calculScoreStudents(users))  
+     }
+   })
 
-router.get("/allStudents", (req, res) => {
-  User.find((err, users) => {
-    if (err) res.json(err);
-    else res.json(users);
-  });
-});
-router.post("/affectation", async (req, res, next) => {
-  var specialite = new specialiteController();
-  var tabAffectation = [];
-  let users = await User.find();
-  var tabScores = specialite.calculScoreStudents(users);
-  for (var i in tabScores) {
-    var obj = null;
-    let user = await User.findOne({ _id: tabScores[i].id });
-    if (user.specialiteUpdate === true) {
-      tabScores[i].choix.map(m => {
-        if (obj === null) {
-          switch (m) {
-            case "Téchnologies du web et de l'internet":
-              if (tabScores[i].scores.twin >= 10) {
-                obj = { _id: tabScores[i].id, choix: m };
-              }
-              break;
-            case "Génie logiciel":
-              if (tabScores[i].scores.gl >= 10) {
-                obj = { _id: tabScores[i].id, choix: m };
-              }
-              break;
-            case "Systemes d'information mobile":
-              if (tabScores[i].scores.sim >= 10) {
-                obj = { _id: tabScores[i].id, choix: m };
-              }
-              break;
-            case "Data Science":
-              if (tabScores[i].scores.ds >= 10) {
-                obj = { _id: tabScores[i].id, choix: m };
-              }
-              break;
-          }
-        }
-      });
-    }
-    tabAffectation.push(obj);
-  }
-  var userNotif = []
-  for (var i in tabAffectation) {
-    if (tabAffectation[i] !== null) {
-      var id = tabAffectation[i]._id;
-      var choix = tabAffectation[i].choix;
-      let user = await User.findOne({ _id: id });
-      user.specialite = choix;
-      user.specialiteUpdate = false;
-      var obj = {
-        id : user._id,
-        specialite : user.specialite
-      } 
-      userNotif.push(obj)
 
-      user.save();
-    }
-  }
-  res.io.emit("notification",userNotif);
-  res.json({ msg: "Success" });
-});
-// router.post("/affectations", (req, res, next) => {
-//   var specilaite = new specialiteController();
-//   var tabAffectation = [];
-//   User.find(async (err, users) => {
-//     if (err) res.json(err);
-//     else {
-//       var tabScores = specilaite.calculScoreStudents(users);
-
-//       for (var i in tabScores) {
-//         var obj = null;
-
-//         tabScores[i].choix.map(m => {
-//           if (obj === null) {
-//             switch (m) {
-//               case "Téchnologies du web et de l'internet":
-//                 if (tabScores[i].scores.twin >= 10) {
-//                   obj = { _id: tabScores[i].id, choix: m };
-//                 }
-//                 break;
-//               case "Génie logiciel":
-//                 if (tabScores[i].scores.gl >= 10) {
-//                   obj = { _id: tabScores[i].id, choix: m };
-//                 }
-//                 break;
-//               case "Systemes d'information mobile":
-//                 if (tabScores[i].scores.sim >= 10) {
-//                   obj = { _id: tabScores[i].id, choix: m };
-//                 }
-//                 break;
-//               case "Data Science":
-//                 if (tabScores[i].scores.ds >= 10) {
-//                   obj = { _id: tabScores[i].id, choix: m };
-//                 }
-//                 break;
-//             }
-//           }
-//         });
-//         tabAffectation.push(obj);
-//       }
-//     }
-
-//     for (var i in tabAffectation) {
-//       if (tabAffectation[i] !== null) {
-//         var id = tabAffectation[i]._id;
-//         var choix = tabAffectation[i].choix;
-//         let user = await User.findOne({ _id: id });
-//         user.specialite = choix;
-//         user.specialiteUpdate = false;
-//         res.io.emit("notification", user);
-//         user.save();
-//       }
-//     }
-//     res.json({ msg: "Success" });
-//   });
-// });
-
+})
 router.post("/ajouterNote", (req, res) => {
   var note = {
     matiere: req.body.matiere,

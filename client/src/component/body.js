@@ -12,6 +12,7 @@ import axios from "axios";
 import Header from "../component/header";
 import jwt_decode from "jwt-decode"
 
+
 class Body extends Component {
   constructor() {
     super();
@@ -24,11 +25,6 @@ class Body extends Component {
   }
   componentWillMount() {
     Modal.setAppElement("body");
-  
-    
-  }
-  componentDidMount(){
-  
   }
   openModal() {
     this.setState({ modalIsOpen: true });
@@ -46,16 +42,17 @@ class Body extends Component {
       .then(res => {
         localStorage.setItem("token", res.data);
         console.log(jwt_decode(res.data).user.role)
-        if(jwt_decode(res.data).user.role === "Etudiant"){
-          this.props.history.push({
-            pathname: "/profile"
-          });
-        }else if(jwt_decode(res.data).user.role === "Admin"){
+     
+        if(jwt_decode(res.data).user.role === "Admin"){
           this.props.history.push({
             pathname: "/admin/profile"
-          });
+          })
         }
-     
+          else{
+            this.props.history.push({
+              pathname: "/profile"
+            });
+        }
       })
       .catch(err => {
         console.log(err);

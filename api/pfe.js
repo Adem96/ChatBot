@@ -6,8 +6,6 @@ var pfeController = require("../controller/pfe.js");
 var GoogleSpreadsheet = require('google-spreadsheet');
 var creds = require('../client_secret.json');
 var doc = new GoogleSpreadsheet('1pAJx4bT1YPsIxM6wnzPz-_br5kEwvIRnZRP8itKuV88');
-const brain = require('brain.js');
-
 
 const request = require("request") // You have to run `npm install request` for this script to work
 const json = {
@@ -85,7 +83,7 @@ router.get("/linkedin", (req, res) => {
 
         // Get all of the rows from the spreadsheet.
         doc.getRows(1 , function (err, rows) {
-
+            if(rows.length()!==0)
             rows[0].del()
             console.log(rows);
         });
@@ -101,23 +99,5 @@ router.get("/linkedin", (req, res) => {
         res.send(err || JSON.stringify(body, null, "\t"))})
 
 })
-
-router.get("/pred", (req, res) => {
-    const network = new brain.NeuralNetwork();
-    network.train([
-        { input: [1, 2], output: [1] }, // Team 2 wins
-        { input: [1, 3], output: [1] }, // Team 3 wins
-        { input: [2, 3], output: [0] }, // Team 2 wins
-        { input: [2, 4], output: [1] }, // Team 4 wins
-        { input: [1, 2], output: [0] }, // Team 1 wins
-        { input: [1, 3], output: [0] }, // Team 1 wins
-        { input: [3, 4], output: [0] } // Team 3 wins
-    ]);
-
-    const output = network.run([1, 4]);
-
-    console.log(`Prob: ${output}`);
-
-});
 
 module.exports = router
