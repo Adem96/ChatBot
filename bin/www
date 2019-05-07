@@ -4,68 +4,28 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var app2 = require('../app');
-
-
-
+var app = require('../app').app;
 var debug = require('debug')('espritchatbot:server');
 var http = require('http');
-const routes = require('../utils/routes'); 
-const config = require('../utils/config'); 
 
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '4000');
-var port2 = normalizePort(process.env.PORT || '4001');
 app.set('port', port);
-app2.set('port',port2)
 
 /**
  * Create HTTP server.
  */
 
-
-var server = http.createServer(app);
-var server2= http.createServer(app2);
-io = require('socket.io').listen(server);
-io2=require('socket.io').listen(server2);
-
-io.on("connect", function(socket){
-  console.log("socket connect")
-  // socket.emit("helloServer","Bonjour ceci est un test sur vos préférences afin de savoir quel spécialité vous convient le mieux")
-  socket.on("fromClient" , function(msg) {
-    
-    socket.emit("fromServer",msg)
-       
-  })
-  // socket.emit("firstQuiz","Pour vous qu'est ce que vous preferez le plus")
-})
-
-//io.on('connection', (socket) => {
-  //console.log(socket.id);
-
-  //socket.on('SEND_MESSAGE', function(data){
-    
-    //  io.emit('RECEIVE_MESSAGE', data);
-  //})
-//}); 
-
-
-
+var server = require("../app").server
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
-server2.listen(port2);
-
-new routes(app2,io2).routesConfig();
-
-
 server.on('error', onError);
 server.on('listening', onListening);
 

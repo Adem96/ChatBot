@@ -1,34 +1,18 @@
 import React, {Component} from "react";
 import "./CSS/scolarite.css"
-import axios from "axios";
 import arrow from "../images/arrow.png";
-import arrowRight from "../images/arrowRight.png";
+
 import Header from "../component/header";
 import IsConnect from "../component/isConnect";
-import jwt_decode from "jwt-decode"
-import close from "../images/close.png";
-import user from "../images/user.png";
-import password from "../images/password.png";
+
+
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction' // needed for dayClick
 import './CSS/dayGrid.css'
 import './CSS/main.css'
-import Modal from "react-modal";
-import {
-    MDBContainer,
-    MDBBtn,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-    MDBModalFooter,
-    MDBInput,
-    MDBDropdown,
-    MDBDropdownMenu,
-    MDBDropdownItem,
-    MDBDropdownToggle
-} from 'mdbreact';
+
 
 
 class CalendarEtudiant extends Component {
